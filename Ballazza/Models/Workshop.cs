@@ -11,7 +11,8 @@ namespace Ballazza.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Workshop
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +23,10 @@ namespace Ballazza.Models
     
         public int WorkshopId { get; set; }
         public string WorkshopAgeGroup { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/YYYY}")]
         public System.DateTime WorkshopStartDate { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/YYYY}")]
         public System.DateTime WorkshopEndDate { get; set; }
         public int WorkshopQuota { get; set; }
         public int VenueId { get; set; }
