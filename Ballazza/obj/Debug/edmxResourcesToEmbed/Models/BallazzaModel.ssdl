@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Booking">
+    <Key>
+      <PropertyRef Name="BookingId" />
+    </Key>
+    <Property Name="BookingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="WorkshopId" Type="int" Nullable="false" />
+    <Property Name="BookingDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rating">
+    <Key>
+      <PropertyRef Name="RatingId" />
+    </Key>
+    <Property Name="RatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="VenueId" Type="int" Nullable="false" />
+    <Property Name="RatingValue" Type="decimal" Precision="2" Scale="1" Nullable="false" />
+    <Property Name="RatingFeedback" Type="nvarchar" MaxLength="320" />
+  </EntityType>
+  <EntityType Name="Venue">
+    <Key>
+      <PropertyRef Name="VenueId" />
+    </Key>
+    <Property Name="VenueId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VenueName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="VenueStreet" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="VenueSuburb" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="VenueState" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="VenuePostcode" Type="int" Nullable="false" />
+    <Property Name="VenuePhoneno" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Workshop">
+    <Key>
+      <PropertyRef Name="WorkshopId" />
+    </Key>
+    <Property Name="WorkshopId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="WorkshopAgeGroup" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="WorkshopStartDate" Type="date" Nullable="false" />
+    <Property Name="WorkshopEndDate" Type="date" Nullable="false" />
+    <Property Name="WorkshopQuota" Type="int" Nullable="false" />
+    <Property Name="VenueId" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Booking__Worksho__3C69FB99">
+    <End Role="Workshop" Type="Self.Workshop" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Workshop">
+        <PropertyRef Name="WorkshopId" />
+      </Principal>
+      <Dependent Role="Booking">
+        <PropertyRef Name="WorkshopId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rating__VenueId__403A8C7D">
+    <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
+    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venue">
+        <PropertyRef Name="VenueId" />
+      </Principal>
+      <Dependent Role="Rating">
+        <PropertyRef Name="VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Workshop__VenueI__38996AB5">
+    <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
+    <End Role="Workshop" Type="Self.Workshop" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Venue">
+        <PropertyRef Name="VenueId" />
+      </Principal>
+      <Dependent Role="Workshop">
+        <PropertyRef Name="VenueId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Venue" EntityType="Self.Venue" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Workshop" EntityType="Self.Workshop" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Booking__Worksho__3C69FB99" Association="Self.FK__Booking__Worksho__3C69FB99">
+      <End Role="Workshop" EntitySet="Workshop" />
+      <End Role="Booking" EntitySet="Booking" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rating__VenueId__403A8C7D" Association="Self.FK__Rating__VenueId__403A8C7D">
+      <End Role="Venue" EntitySet="Venue" />
+      <End Role="Rating" EntitySet="Rating" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Workshop__VenueI__38996AB5" Association="Self.FK__Workshop__VenueI__38996AB5">
+      <End Role="Venue" EntitySet="Venue" />
+      <End Role="Workshop" EntitySet="Workshop" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

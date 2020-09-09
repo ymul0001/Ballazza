@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="BallazzaEntities">
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="Model.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="BookingId" ColumnName="BookingId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="WorkshopId" ColumnName="WorkshopId" />
+          <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="Model.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="RatingId" ColumnName="RatingId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+          <ScalarProperty Name="RatingValue" ColumnName="RatingValue" />
+          <ScalarProperty Name="RatingFeedback" ColumnName="RatingFeedback" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Venues">
+      <EntityTypeMapping TypeName="Model.Venue">
+        <MappingFragment StoreEntitySet="Venue">
+          <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+          <ScalarProperty Name="VenueName" ColumnName="VenueName" />
+          <ScalarProperty Name="VenueStreet" ColumnName="VenueStreet" />
+          <ScalarProperty Name="VenueSuburb" ColumnName="VenueSuburb" />
+          <ScalarProperty Name="VenueState" ColumnName="VenueState" />
+          <ScalarProperty Name="VenuePostcode" ColumnName="VenuePostcode" />
+          <ScalarProperty Name="VenuePhoneno" ColumnName="VenuePhoneno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Workshops">
+      <EntityTypeMapping TypeName="Model.Workshop">
+        <MappingFragment StoreEntitySet="Workshop">
+          <ScalarProperty Name="WorkshopId" ColumnName="WorkshopId" />
+          <ScalarProperty Name="WorkshopAgeGroup" ColumnName="WorkshopAgeGroup" />
+          <ScalarProperty Name="WorkshopStartDate" ColumnName="WorkshopStartDate" />
+          <ScalarProperty Name="WorkshopEndDate" ColumnName="WorkshopEndDate" />
+          <ScalarProperty Name="WorkshopQuota" ColumnName="WorkshopQuota" />
+          <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

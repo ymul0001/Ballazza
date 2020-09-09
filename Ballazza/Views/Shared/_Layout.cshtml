@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ballazza</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/Global.css")
+    @Styles.Render("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="/Home/Index" class="navbar-left brand">
+                    <img src="~/Content/img/ballazza-logo.png" alt="ballazza" width="120" />
+                </a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-items">@Html.ActionLink("Camps", "Index", "Workshops")</li>
+                    <li class="nav-items">@Html.ActionLink("Location", "About", "Home")</li>
+                    <li class="nav-items">@Html.ActionLink("Bookings", "Contact", "Home")</li>
+                    <li class="nav-items">@Html.ActionLink("Rate the venue", "Index", "Venues")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

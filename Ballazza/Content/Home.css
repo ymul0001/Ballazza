@@ -1,0 +1,34 @@
+﻿body {
+    background: linear-gradient(0deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url('./img/nick-jio-57rD2oDZquc-unsplash.jpg') no-repeat fixed center !important;
+    background-size: cover !important;
+}
+
+.jumbotron {
+    background-color: transparent !important;
+    margin-top: 24vh !important;
+    color: #fff;
+}
+
+.jumbotron-title {
+    font-size: 8vw !important;
+}
+
+.jumbotron-lead {
+    font-size: 2.5vw !important;
+}
+
+.jumbotron-subs {
+    margin-top: 5vh !important;
+    min-width: 20vw !important;
+    height: 6vh !important;
+    background-color: #C72B2B !important;
+    border: none;
+    transition: all .2s;
+    font-size: 1.8rem;
+}
+
+    /*pseudo-selector and animation*/
+    .jumbotron-subs:hover {
+        background-color: #a32424 !important;
+        transform: scale(.98)
+    }

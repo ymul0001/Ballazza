@@ -1,0 +1,40 @@
+﻿body {
+    padding-top: 100px;
+}
+
+.navbar {
+    background-color: #FFFFFF !important;
+    border: none !important;
+    min-height: 0 !important;
+}
+
+.nav-items {
+    font-size: 1.6vw;
+    margin-top: .5vh;
+    margin-left: 1vw;
+    margin-top: 3.5rem !important;
+}
+
+    .nav-items a {
+        color: #787878 !important;
+        font-weight: bold;
+        letter-spacing: .2rem;
+        font-size: 1.8rem;
+    }
+
+.register {
+    background-color: #323333 !important;
+    padding-top: 0 !important;
+    transition: all .3s;
+}
+
+    .register a {
+        color: #fff !important;
+    }
+
+
+    /*pseudo-selector and animation*/
+    .register:hover {
+        background-color: #000 !important;
+        transform: scale(.98);
+    }
