@@ -5,12 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 @Styles.Render("~/Content/Camps.css")
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table id="workshop-table">
+<table id="workshop-table" class="ui celled table" style="width:100%">
     <thead>
         <tr>
             <th>
@@ -41,4 +42,6 @@
 
 @Styles.Render("//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css")
 @Scripts.Render("//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js")
+@Scripts.Render("https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js")
 @Scripts.Render("~/Scripts/workshops.js")

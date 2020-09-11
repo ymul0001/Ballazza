@@ -20,6 +20,12 @@ namespace Ballazza.Controllers
             return View();
         }
 
+        //Return the Workshop's admin index view
+        public ActionResult AdminIndex()
+        {
+            return View();
+        }
+
         //GET: Workshops/GetWorkshopList
         public ActionResult GetWorkshopList() {
 

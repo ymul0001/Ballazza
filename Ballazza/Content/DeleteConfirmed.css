@@ -1,0 +1,53 @@
+﻿body {
+    background-color: #1c222b;
+    background-size: cover !important;
+}
+
+.confirmation-section {
+    margin-top: 35vh !important;
+    color: #fff;
+}
+
+.confirmation-warning{
+    font-size: 2rem !important; 
+}
+
+.confirmation-set {
+    margin-top: 3vh;
+    display: flex;
+}
+
+.delete-button {
+    background-color: #AE3535;
+    border: none;
+    min-width: 15%  !important;
+    height: 4vh !important;
+    margin-right: 3rem;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+
+.back-button {
+    background-color: #C3C3C3;
+    display: block;
+    border: none;
+    min-width: 15% !important;
+    height: 4vh !important;
+    transition: all .3s;
+    color: #000;
+    font-weight: 700;
+    line-height: 2.7vh;
+}
+
+
+.delete-button:hover {
+    background-color: #782424;
+    transform: scale(.98);
+}
+
+.back-button:hover {
+    background-color: #595858;
+    color: #fff;
+    transform: scale(.98);
+}

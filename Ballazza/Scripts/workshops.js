@@ -35,8 +35,8 @@
             },
             { "data": "Quota", "autowidth": true },
             {
-                "render": function () {
-                        return '<button class="book-button" style="border-radius: 20px;min-width: 5vw !important;border: none;background-color: #b53636 !important;color: #fff;min-height: 3vh !important;">Book!</button>'
+                "render": function (data, type, row) {
+                    return `<button class="book-button" style="border-radius: 20px;min-width: 5vw !important;border: none;background-color: #b53636 !important;color: #fff;min-height: 3vh !important;">Book</button>`
                 },
                 "autowidth": true
             }
