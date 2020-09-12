@@ -48,3 +48,7 @@
         ]
     })
 });
+
+$(".create-button").click(function () {
+    window.location.href = "/Workshops/Create";
+});

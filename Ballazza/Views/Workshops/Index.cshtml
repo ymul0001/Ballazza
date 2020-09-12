@@ -11,35 +11,35 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table id="workshop-table" class="ui celled table" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-                Id
-            </th>
-            <th>
-                Venue
-            </th>
-            <th>
-                Age Group
-            </th>
-            <th>
-                Start Date
-            </th>
-            <th>
-                End Date
-            </th>
-            <th>
-                Quota
-            </th>
-            <th>
-                Action
-            </th>
-
-        </tr>
-    </thead>
-</table>
-
+<div id="content-wrapper">
+    <table id="workshop-table" class="ui celled table" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Venue
+                </th>
+                <th>
+                    Age Group
+                </th>
+                <th>
+                    Start Date
+                </th>
+                <th>
+                    End Date
+                </th>
+                <th>
+                    Quota
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
 @Styles.Render("//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css")
 @Scripts.Render("//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js")
 @Scripts.Render("https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js")

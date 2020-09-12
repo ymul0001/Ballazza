@@ -12,15 +12,39 @@ select {
     font-weight: 400 !important;
 }
 
-#workshop-table_wrapper {
+#content-wrapper {
     margin-top: 10vh !important;
+}
+
+#workshop-table_wrapper {
+    margin-top: 2vh !important;
 }
 
 #workshop-table_info {
     color: #fff !important;
 }
 
+.create-button {
+    margin-top: 2vh !important;
+    border: none;
+    border-radius: 10px;
+    height: 4vh;
+    width: 10%;
+    font-weight: 700;
+    transition: all .3s;
+}
 
+/*animation and pseudoselectors*/
+    .create-button:hover {
+        background-color: #6e6d6d;
+        color: #fff;
+    }
+
+@media (min-width:768px) and (max-width: 991px) {
+    #content-wrapper {
+        margin-top: 19vh !important;
+    }
+}
 
 
 

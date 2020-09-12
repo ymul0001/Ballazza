@@ -231,6 +231,7 @@
     <Content Include="Content\DeleteConfirmed.css" />
     <Content Include="Content\Global.css" />
     <Content Include="Content\Home.css" />
+    <Content Include="Content\WorkshopCreate.css" />
     <Content Include="Content\WorkshopUpdate.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -271,7 +272,7 @@
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
-    <Content Include="Scripts\workshopedit.js" />
+    <Content Include="Scripts\datepickerHandler.js" />
     <Content Include="Scripts\workshops.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
