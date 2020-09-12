@@ -11,7 +11,8 @@ namespace Ballazza.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Venue
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,13 +21,20 @@ namespace Ballazza.Models
             this.Ratings = new HashSet<Rating>();
             this.Workshops = new HashSet<Workshop>();
         }
-    
+
+        [Display(Name = "Id")]
         public int VenueId { get; set; }
+        [Display(Name = "Name")]
         public string VenueName { get; set; }
+        [Display(Name = "Street")]
         public string VenueStreet { get; set; }
+        [Display(Name = "Suburb")]
         public string VenueSuburb { get; set; }
+        [Display(Name = "State")]
         public string VenueState { get; set; }
+        [Display(Name = "Post code")]
         public int VenuePostcode { get; set; }
+        [Display(Name = "Phone number")]
         public string VenuePhoneno { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -20,15 +20,20 @@ namespace Ballazza.Models
         {
             this.Bookings = new HashSet<Booking>();
         }
-    
+        [Display(Name = "Id")]
         public int WorkshopId { get; set; }
+        [Display(Name = "Age group")]
         public string WorkshopAgeGroup { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/YYYY}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "Start date")]
         public System.DateTime WorkshopStartDate { get; set; }
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/YYYY}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [Display(Name = "End date")]
         public System.DateTime WorkshopEndDate { get; set; }
+        [Display(Name = "Quota")]
         public int WorkshopQuota { get; set; }
+        [Display(Name = "Venue id")]
         public int VenueId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
