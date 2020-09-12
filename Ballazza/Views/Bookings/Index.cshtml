@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Ballazza.Models.Booking>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/Bookings.css")
+
+
+<div id="content-wrapper">
+    <table id="booking-table" class="ui celled table" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Venue
+                </th>
+                <th>
+                    Age group
+                </th>
+                <th>
+                    Start date
+                </th>
+                <th>
+                    End date
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@Styles.Render("//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css")
+@Scripts.Render("//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js")
+@Scripts.Render("https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js")
+@Scripts.Render("~/Scripts/bookings.js")

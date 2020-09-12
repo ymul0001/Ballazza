@@ -1,0 +1,31 @@
+﻿body {
+    background-color: #1c222b;
+    background-size: cover !important;
+}
+
+label {
+    color: #fff !important;
+}
+
+select {
+    color: #000 !important;
+    font-weight: 400 !important;
+}
+
+#content-wrapper {
+    margin-top: 10vh !important;
+}
+
+#booking-table_wrapper {
+    margin-top: 2vh !important;
+}
+
+#booking-table_info {
+    color: #fff !important;
+}
+
+@media (min-width:768px) and (max-width: 991px) {
+    #content-wrapper {
+        margin-top: 19vh !important;
+    }
+}

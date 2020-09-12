@@ -1,16 +1,13 @@
 ﻿@model IEnumerable<Ballazza.Models.Workshop>
 
 @{
-    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 @Styles.Render("~/Content/Camps.css")
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <div id="content-wrapper">
     <table id="workshop-table" class="ui celled table" style="width:100%">
         <thead>
