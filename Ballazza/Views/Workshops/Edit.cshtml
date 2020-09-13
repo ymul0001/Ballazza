@@ -27,7 +27,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.WorkshopStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.WorkshopStartDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    @Html.EditorFor(model => model.WorkshopStartDate, new { htmlAttributes = new { @class = "form-control datepicker-1" } })
                     @Html.ValidationMessageFor(model => model.WorkshopStartDate, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.WorkshopEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.WorkshopEndDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    @Html.EditorFor(model => model.WorkshopEndDate, new { htmlAttributes = new { @class = "form-control datepicker-2" } })
                     @Html.ValidationMessageFor(model => model.WorkshopEndDate, "", new { @class = "text-danger" })
                 </div>
             </div>

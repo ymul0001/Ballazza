@@ -1,12 +1,13 @@
 ﻿body {
-    background-color: #1c222b;
+    background: linear-gradient(0deg, rgba(31, 14, 17, .8), rgba(31, 14, 17, .8)), url('./img/shoes.jpg') no-repeat fixed center !important;
+    background-size: cover;
 }
 
 .workshop-create-form {
     margin-top: 15vh !important;
     padding-top: 5vh !important;
     /*color: #fff !important;*/
-    background-color: #F6F6F6 !important;
+    background-color: #FFFFFF !important;
     height: 68vh !important;
     width: 70% !important;
     margin-left: auto;
@@ -27,7 +28,7 @@
     margin-bottom: 4vh !important;
     padding-top: 2vh;
     font-size: 2rem;
-    color: #1c222b;
+    color: #852121;
 }
 
 .form-group {

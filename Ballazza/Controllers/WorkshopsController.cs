@@ -78,7 +78,7 @@ namespace Ballazza.Controllers
             {
                 db.Workshops.Add(workshop);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AdminIndex");
             }
 
             ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "VenueName", workshop.VenueId);
@@ -112,7 +112,7 @@ namespace Ballazza.Controllers
             {
                 db.Entry(workshop).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AdminIndex");
             }
             ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "VenueName", workshop.VenueId);
             return View(workshop);

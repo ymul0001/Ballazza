@@ -233,6 +233,7 @@
     <Content Include="Content\DeleteConfirmed.css" />
     <Content Include="Content\Global.css" />
     <Content Include="Content\Home.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="Content\WorkshopCreate.css" />
     <Content Include="Content\WorkshopUpdate.css" />
     <Content Include="favicon.ico" />

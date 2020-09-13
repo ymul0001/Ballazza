@@ -1,5 +1,6 @@
 ﻿body {
     padding-top: 100px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .navbar {
@@ -20,6 +21,7 @@
         font-weight: bold;
         letter-spacing: .2rem;
         font-size: 1.8rem;
+        font-family: 'Lato', sans-serif;
     }
 
 .register {

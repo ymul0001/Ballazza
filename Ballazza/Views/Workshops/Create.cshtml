@@ -18,7 +18,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.WorkshopAgeGroup, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.WorkshopAgeGroup, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.WorkshopAgeGroup, new { htmlAttributes = new { @class = "form-control", placeholder = "Please specify either Kids, Teens, or Pro" } })
                     @Html.ValidationMessageFor(model => model.WorkshopAgeGroup, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -26,7 +26,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.WorkshopStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.WorkshopStartDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    @Html.EditorFor(model => model.WorkshopStartDate, new { htmlAttributes = new { @class = "form-control datepicker-1", placeholder = "dd/MM/yyyy" } })
                     @Html.ValidationMessageFor(model => model.WorkshopStartDate, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -34,7 +34,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.WorkshopEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.WorkshopEndDate, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                    @Html.EditorFor(model => model.WorkshopEndDate, new { htmlAttributes = new { @class = "form-control datepicker-2", placeholder = "dd/MM/yyyy" } })
                     @Html.ValidationMessageFor(model => model.WorkshopEndDate, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -67,6 +67,5 @@
 @section Scripts {
     @Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js")
     @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/Scripts/workshopcreate.js")
     @Scripts.Render("~/Scripts/datepickerHandler.js")
 }

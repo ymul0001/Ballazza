@@ -1,0 +1,49 @@
+﻿body {
+    background: linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('./img/basketball-court-background.jpg') no-repeat fixed center;
+    background-size: cover;
+}
+
+.login-form {
+    margin-top: 12vh;
+    text-align: center;
+    color: #000;
+    height: 58vh;
+    background-color: #fff;
+    opacity: .93;
+}
+
+
+.login-button {
+    width: 80%;
+    background: #b00e2e;
+    height: 4vh;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 3vh;
+    transition: all .2s !important;
+}
+
+.login-title {
+    padding-top: 4vh;
+    font-size: 3rem;
+    border: none;
+    font-weight: 700;
+}
+
+.login-subtitle {
+    font-size: 1.4rem;
+}
+
+.register-message {
+    margin-right: 1rem;
+}
+
+/* 
+    animation and pseudoselectors
+*/
+
+.login-button:hover {
+    background-color: #d9d7d7 !important;
+    color: #000 !important;
+}
+

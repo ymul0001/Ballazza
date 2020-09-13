@@ -11,8 +11,27 @@
 });
 
 $(function () {
-    $(".datepicker").datepicker({
+    $(".datepicker-1").datepicker({
         format: "dd/mm/yyyy",
         autoclose: true,
-    })
+    }).on('changeDate', function (selected) {
+        ms = selected.date.valueOf() + 7 * 24 * 60 * 60 * 1000;
+        var minDate = new Date(ms);
+        $('.datepicker-2').datepicker('setStartDate', minDate);
+        $('.datepicker-2').datepicker('setEndDate', minDate);
+    });
+
 })
+
+$(function () {
+    $(".datepicker-2").datepicker({
+        format: "dd/mm/yyyy",
+        autoclose: true,
+    }).on('changeDate', function (selected) {
+        var maxDate = new Date(selected.date.valueOf());
+        $('.datepicker-1').datepicker('setEndDate', maxDate);
+    });
+})
+
+
+

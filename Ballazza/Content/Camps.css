@@ -1,5 +1,5 @@
 ﻿body {
-    background-color: #1c222b;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('./img/basketball-dark.jpg') no-repeat fixed center;
     background-size: cover !important;
 }
 
@@ -12,6 +12,12 @@ select {
     font-weight: 400 !important;
 }
 
+.workshop-title {
+    color: #fff;
+    font-size: 4rem;
+    margin-bottom: 7vh;
+}
+
 #content-wrapper {
     margin-top: 10vh !important;
 }
@@ -22,6 +28,15 @@ select {
 
 #workshop-table_info {
     color: #fff !important;
+}
+
+#workshop-table th {
+    background-color: #704b2d;
+    color: #fff;
+}
+
+#workshop-table tbody tr:nth-child(2n) {
+    background-color: #dbdbdb;
 }
 
 .create-button {
