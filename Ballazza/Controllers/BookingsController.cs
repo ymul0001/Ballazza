@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Ballazza.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Ballazza.Controllers
 {
@@ -15,6 +16,7 @@ namespace Ballazza.Controllers
         private BallazzaEntities db = new BallazzaEntities();
 
         // GET: Bookings
+        [Authorize(Roles = "User")]
         public ActionResult Index()
         {
             var bookings = db.Bookings.Include(b => b.Workshop);
@@ -22,11 +24,13 @@ namespace Ballazza.Controllers
         }
 
         //Return the Booking's admin index view
+        [Authorize(Roles = "Administrator")]
         public ActionResult AdminIndex()
         {
             return View();
         }
 
+        /*
         // GET: Bookings/Details/5
         public ActionResult Details(int? id)
         {
@@ -41,16 +45,22 @@ namespace Ballazza.Controllers
             }
             return View(booking);
         }
+        */
 
         //GET: Bookings/GetBookingList
+        [Authorize]
         public ActionResult GetBookingList()
         {
-
-            var bookingList = db.Bookings.Include(w => w.Workshop).ToList();
+            var bookingList = db.Bookings.Include(w => w.Workshop);
+            if (User.IsInRole("User")) {
+                var userId = User.Identity.GetUserId();
+                bookingList = bookingList.Include(w => w.Workshop).Where(m => m.Id == userId);
+            }
+            
             return Json(
                 new
                 {
-                    data = (from obj in bookingList
+                    data = (from obj in bookingList.ToList()
                             select new
                             {
                                 BookingId = obj.BookingId,
@@ -64,6 +74,7 @@ namespace Ballazza.Controllers
         }
 
         // GET: Bookings/Delete/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -79,6 +90,7 @@ namespace Ballazza.Controllers
         }
 
         // POST: Bookings/Delete/5
+        [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -334,6 +334,8 @@
     <Content Include="Views\Bookings\Delete.cshtml" />
     <Content Include="Views\Bookings\Index.cshtml" />
     <Content Include="Views\Bookings\AdminIndex.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Home\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
