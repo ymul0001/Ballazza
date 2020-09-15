@@ -190,6 +190,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009090819142_InitialCreate.cs" />
+    <Compile Include="Migrations\202009090819142_InitialCreate.Designer.cs">
+      <DependentUpon>202009090819142_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009140315585_addfirstandlastname.cs" />
+    <Compile Include="Migrations\202009140315585_addfirstandlastname.Designer.cs">
+      <DependentUpon>202009140315585_addfirstandlastname.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BallazzaModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -234,6 +243,7 @@
     <Content Include="Content\Global.css" />
     <Content Include="Content\Home.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\Register.css" />
     <Content Include="Content\WorkshopCreate.css" />
     <Content Include="Content\WorkshopUpdate.css" />
     <Content Include="favicon.ico" />
@@ -343,6 +353,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009090819142_InitialCreate.resx">
+      <DependentUpon>202009090819142_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009140315585_addfirstandlastname.resx">
+      <DependentUpon>202009140315585_addfirstandlastname.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

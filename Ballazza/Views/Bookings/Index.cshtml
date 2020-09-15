@@ -7,32 +7,33 @@
 @Styles.Render("~/Content/Bookings.css")
 
 
-<div id="content-wrapper">
-    <table id="booking-table" class="ui celled table" style="width: 100%;">
-        <thead>
-            <tr>
-                <th>
-                    Id
-                </th>
-                <th>
-                    Venue
-                </th>
-                <th>
-                    Age group
-                </th>
-                <th>
-                    Start date
-                </th>
-                <th>
-                    End date
-                </th>
-                <th>
-                    Action
-                </th>
-            </tr>
-        </thead>
-    </table>
-</div>
+    <div id="content-wrapper">
+        <h2 class="booking-title">List of Successful Bookings</h2>
+        <table id="booking-table" class="ui celled table" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        Venue
+                    </th>
+                    <th>
+                        Age group
+                    </th>
+                    <th>
+                        Start date
+                    </th>
+                    <th>
+                        End date
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
 @Styles.Render("//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css")
 @Scripts.Render("//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js")

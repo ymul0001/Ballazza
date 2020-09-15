@@ -23,23 +23,23 @@ namespace Ballazza.Models
         [Display(Name = "Id")]
         public int WorkshopId { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Age group cannot be empty")]
         [Display(Name = "Age group")]
         [DataType(DataType.Text)]
         public string WorkshopAgeGroup { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "Start date cannot be empty")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Start date")]
         public System.DateTime WorkshopStartDate { get; set; }
         
-        [Required]
+        [Required(ErrorMessage = "End date cannot be empty")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "End date")]
         public System.DateTime WorkshopEndDate { get; set; }
         
-        [Required]
-        [Range(0, 100)]
+        [Required(ErrorMessage = "Quota cannot be empty")]
+        [Range(0, 100, ErrorMessage = "The quota value should be between 0 and 100")]
         [Display(Name = "Quota")]
         public int WorkshopQuota { get; set; }
         [Display(Name = "Venue id")]

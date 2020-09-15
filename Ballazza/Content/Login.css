@@ -10,13 +10,14 @@
     height: 58vh;
     background-color: #fff;
     opacity: .93;
+    border-radius: 20px;
 }
 
 
 .login-button {
     width: 80%;
     background: #b00e2e;
-    height: 4vh;
+    height: 5vh;
     color: #fff;
     font-weight: 700;
     margin-top: 3vh;
@@ -36,6 +37,10 @@
 
 .register-message {
     margin-right: 1rem;
+}
+
+.field-validation-error {
+    font-size: .9rem;
 }
 
 /* 

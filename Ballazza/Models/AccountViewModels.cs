@@ -64,6 +64,12 @@ namespace Ballazza.Models
 
     public class RegisterViewModel
     {
+        [Display(Name = "First name")]
+        [Required(AllowEmptyStrings = false)]
+        public string Fname { get; set; }
+        [Display(Name = "Last name")]
+        [Required(AllowEmptyStrings = false)]
+        public string Lname { get; set; }
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

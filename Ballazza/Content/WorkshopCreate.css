@@ -8,7 +8,7 @@
     padding-top: 5vh !important;
     /*color: #fff !important;*/
     background-color: #FFFFFF !important;
-    height: 68vh !important;
+    height: 72vh !important;
     width: 70% !important;
     margin-left: auto;
     margin-right: auto;
@@ -29,6 +29,10 @@
     padding-top: 2vh;
     font-size: 2rem;
     color: #852121;
+}
+
+.field-validation-error {
+    font-size: .9rem;
 }
 
 .form-group {

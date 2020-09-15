@@ -24,6 +24,10 @@
     margin-right: auto;
 }
 
+.field-validation-error {
+    font-size: .9rem;
+}
+
 .form-title {
     margin-bottom: 4vh !important;
     padding-top: 2vh;

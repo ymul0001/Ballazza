@@ -1,0 +1,52 @@
+﻿body {
+    background: linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('./img/basketball-court-background.jpg') no-repeat fixed center;
+    background-size: cover;
+}
+
+.register-form {
+    margin-top: 8vh;
+    text-align: center;
+    color: #000;
+    height: 70vh;
+    background-color: #fff;
+    opacity: .93;
+    border-radius: 20px;
+}
+
+.register-button {
+    width: 80%;
+    background: #b00e2e;
+    height: 5vh;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 3vh;
+    transition: all .2s !important;
+    border: none;
+}
+
+.register-title {
+    padding-top: 2vh;
+    font-size: 2.5rem;
+    border: none;
+    font-weight: 700;
+    padding-bottom: 4.5vh;
+}
+
+.register-subtitle {
+    font-size: 1.4rem;
+}
+
+.control-label {
+    font-size: 1rem;
+}
+
+.field-validation-error {
+    font-size: .9rem;
+}
+/* 
+    animation and pseudoselectors
+*/
+.register-button:hover {
+    background-color: #d9d7d7 !important;
+    color: #000 !important;
+}

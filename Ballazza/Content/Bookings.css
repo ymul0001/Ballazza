@@ -7,6 +7,7 @@ label {
     color: #fff !important;
 }
 
+
 select {
     color: #000 !important;
     font-weight: 400 !important;
@@ -18,6 +19,12 @@ select {
 
 #booking-table_wrapper {
     margin-top: 2vh !important;
+}
+
+.booking-title {
+    color: #fff;
+    font-size: 4rem;
+    margin-bottom: 7vh;
 }
 
 #booking-table_info {
