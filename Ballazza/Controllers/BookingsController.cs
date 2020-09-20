@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Ballazza.Controllers
 {
+    [RequireHttps]
     public class BookingsController : Controller
     {
         private BallazzaEntities db = new BallazzaEntities();

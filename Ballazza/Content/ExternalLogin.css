@@ -1,0 +1,41 @@
+﻿body {
+    background-color: #1c222b;
+    background-size: cover !important;
+}
+
+.validation-form {
+    margin-top: 15vh !important;
+    color: #fff;
+}
+
+.text-info {
+    color: #fff;
+}
+
+.ext-input {
+    margin-top: 5vh !important;
+}
+
+.ext-button {
+    background-color: #AE3535;
+    border: none;
+    transition: all .2s;
+    color: #fff;
+    height: 4vh;
+    font-weight: 700;
+    width: 15%;
+    margin-top: 2vh;
+}
+
+/*animation and pseudoselector*/
+    .ext-button:hover {
+        background-color: #4c4c4d !important;
+        color: #fff !important;
+        transform: scale(.98);
+    }
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .validation-form {
+        margin-top: 25vh !important;
+    }
+}

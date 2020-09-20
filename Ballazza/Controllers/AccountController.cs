@@ -380,6 +380,7 @@ namespace Ballazza.Controllers
                     if (result.Succeeded)
                     {
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                        UserManager.AddToRole(user.Id, "User");
                         return RedirectToLocal(returnUrl);
                     }
                 }

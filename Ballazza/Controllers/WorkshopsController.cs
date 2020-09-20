@@ -10,6 +10,7 @@ using Ballazza.Models;
 
 namespace Ballazza.Controllers
 {
+    [RequireHttps]
     public class WorkshopsController : Controller
     {
         private BallazzaEntities db = new BallazzaEntities();

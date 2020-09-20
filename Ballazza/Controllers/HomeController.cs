@@ -5,7 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace Ballazza.Controllers
-{
+{   
+    [RequireHttps]
     public class HomeController : Controller
     {
         [Authorize(Roles = "Administrator")]

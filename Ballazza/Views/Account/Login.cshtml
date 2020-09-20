@@ -49,11 +49,10 @@
                 <p>
                     <strong class="register-message">Not a member?</strong>@Html.ActionLink("Join now", "Register")
                 </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
             }
+        </section>
+        <section id="socialLoginForm" class= "col-md-8 col-md-offset-2">
+            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
 </div>

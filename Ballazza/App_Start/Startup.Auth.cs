@@ -54,15 +54,15 @@ namespace Ballazza
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+              appId: "1298909917149508",
+              appSecret: "e90227fdad3dc1e882da3eba29f70118");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "119582781202-nkgedecnshh16gjl43gk04iu581bt08b.apps.googleusercontent.com",
+                ClientSecret = "97RbyaEZ2ZMJ4Qzqqa8Mdl2K"
+            });
         }
     }
 }
