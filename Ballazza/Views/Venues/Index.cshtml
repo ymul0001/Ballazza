@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Ballazza.Models.Venue>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+@Scripts.Render("https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js")
+@Styles.Render("https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css")
+@Styles.Render("~/Content/Venues.css")
+
+<div class="title">
+   <h2>Our locations</h2>
+</div>
+<div id="menu">
+    <input id="streets-v11"
+           type="radio"
+           name="rtoggle"
+           value="streets"
+           checked="checked" />
+    <label for="streets-v11">streets</label>
+    <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
+    <label for="dark-v10">dark</label>
+    <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+    <label for="satellite-v9">satellite</label>
+</div>
+<button id="fly">Go to the Melbourne Center</button>
+<div id='map'></div>
+
+@Scripts.Render("~/Scripts/venues.js")
+
+

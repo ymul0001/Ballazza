@@ -1,0 +1,67 @@
+﻿@model Ballazza.Models.Venue
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Venue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueStreet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueStreet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueSuburb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueSuburb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueState)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueState)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenuePostcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenuePostcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenuePhoneno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenuePhoneno)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.VenueId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

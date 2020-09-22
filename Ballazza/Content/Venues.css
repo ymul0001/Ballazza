@@ -1,0 +1,45 @@
+﻿body {
+    background: linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('./img/henry-perks-BJXAxQ1L7dI-unsplash.jpg') no-repeat fixed center;
+    background-size: cover;
+    color: #000;
+}
+
+#map {
+    width: 60vw; 
+    height: 60vh;
+    margin-bottom: 5vh;
+}
+
+.title {
+    margin-top: 8vh;
+    margin-bottom: 3vh;
+}
+
+    .title h2 {
+        font-size: 2.5rem;
+        color: #fff;
+    }
+
+#menu {
+    padding: 10px;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+}
+
+#fly {
+    display: block;
+    width: 20%;
+    height: 40px;
+    border: none;
+    border-radius: 3px;
+    font-size: 12px;
+    text-align: center;
+    color: #fff;
+    background-color: #8a3b19;
+    margin-bottom: 3vh;
+    transition: all .3s;
+}
+
+    #fly:hover {
+        background-color: #542410;
+    }

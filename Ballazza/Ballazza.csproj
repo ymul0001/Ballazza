@@ -186,6 +186,7 @@
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\VenuesController.cs" />
     <Compile Include="Controllers\WorkshopsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,6 +246,7 @@
     <Content Include="Content\Home.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Register.css" />
+    <Content Include="Content\Venues.css" />
     <Content Include="Content\WorkshopCreate.css" />
     <Content Include="Content\WorkshopUpdate.css" />
     <Content Include="favicon.ico" />
@@ -289,6 +291,7 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\datepickerHandler.js" />
+    <Content Include="Scripts\venues.js" />
     <Content Include="Scripts\workshops.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -337,6 +340,11 @@
     <Content Include="Views\Bookings\AdminIndex.cshtml" />
     <Content Include="Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Views\Home\AdminIndex.cshtml" />
+    <Content Include="Views\Venues\Create.cshtml" />
+    <Content Include="Views\Venues\Delete.cshtml" />
+    <Content Include="Views\Venues\Details.cshtml" />
+    <Content Include="Views\Venues\Edit.cshtml" />
+    <Content Include="Views\Venues\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
