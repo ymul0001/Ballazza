@@ -4,13 +4,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <script src="~/Scripts/jquery-3.4.1.js"></script>
 @Scripts.Render("https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js")
 @Styles.Render("https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css")
 @Styles.Render("~/Content/Venues.css")
+@Scripts.Render("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js")
+@Styles.Render("https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.css")
 
 <div class="title">
-   <h2>Our locations</h2>
+    <h2>Our locations</h2>
+</div>
+<div class="notes">
+    <h3 class="notes-title">Important notes:</h3>
+    <p>Two ways to get the best benefits of this interactive map:</p>
+    <ul>
+        <li>You may click on the maps for the A and B points, and you will get directions for both points</li>
+        <li>You may click on the red markers to retrieve the address for a venue, and input your location and venue address in the form</li>
+    </ul>
 </div>
 <div id="menu">
     <input id="streets-v11"

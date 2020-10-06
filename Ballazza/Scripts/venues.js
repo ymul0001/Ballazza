@@ -12,7 +12,12 @@ const map = new mapboxgl.Map({
     zoom: 11, // starting zoom
 });
 map.addControl(new mapboxgl.NavigationControl());
-
+map.addControl(
+    new MapboxDirections({
+        accessToken: mapboxgl.accessToken
+    }),
+    'top-left'
+);
 
 /**
  * Retrieving the location data from the back-end
@@ -36,7 +41,8 @@ $(document).ready(function () {
 
                         // create the popup information for each marker
                         var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
-                            '<h3>' + data.VenueName + '</h3><p>' + data.VenueAddress + '</p>'
+                            '<h3>' + data.VenueName + '</h3><p>' + data.VenueAddress + '</p><p><a href="/Workshops">Make a booking!</a></p>'
+
                         );
 
                   
