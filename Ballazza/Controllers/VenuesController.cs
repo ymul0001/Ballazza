@@ -20,6 +20,12 @@ namespace Ballazza.Controllers
             return View(db.Venues.ToList());
         }
 
+        [Authorize(Roles = "Administrator")]
+        public ActionResult AdminIndex()
+        {
+            return View();
+        }
+
         [AllowAnonymous]
         public ActionResult GetVenuesList()
         {
@@ -33,6 +39,28 @@ namespace Ballazza.Controllers
                             {
                                 VenueName = obj.VenueName,
                                 VenueAddress = obj.VenueStreet + " " + obj.VenueSuburb + " " + obj.VenueState + " " + obj.VenuePostcode
+                            })
+                }, JsonRequestBehavior.AllowGet); ;
+        }
+
+        [Authorize(Roles = "Administrator")]
+        public ActionResult GetVenuesListAdmin()
+        {
+
+            var venuesList = db.Venues.ToList();
+            return Json(
+                new
+                {
+                    data = (from obj in venuesList
+                            select new
+                            {
+                                VenueId = obj.VenueId,
+                                VenueName = obj.VenueName,
+                                VenueStreet = obj.VenueStreet,
+                                VenueSuburb = obj.VenueSuburb,
+                                VenueState = obj.VenueState,
+                                VenuePostcode = obj.VenuePostcode,
+                                VenuePhoneno = obj.VenuePhoneno
                             })
                 }, JsonRequestBehavior.AllowGet); ;
         }
@@ -118,7 +146,7 @@ namespace Ballazza.Controllers
             {
                 return HttpNotFound();
             }
-            return View(venue);
+            return RedirectToAction("AdminIndex");
         }
 
         // POST: Venues/Delete/5

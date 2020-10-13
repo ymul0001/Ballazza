@@ -1,0 +1,62 @@
+﻿body {
+    background: linear-gradient(0deg, rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url('./img/basketball-dark.jpg') no-repeat fixed center;
+    background-size: cover !important;
+}
+
+label {
+    color: #fff !important;
+}
+
+select {
+    color: #000 !important;
+    font-weight: 400 !important;
+}
+
+.workshop-title {
+    color: #fff;
+    font-size: 4rem;
+    margin-bottom: 7vh;
+}
+
+#content-wrapper {
+    margin-top: 10vh !important;
+}
+
+#venue-table_wrapper {
+    margin-top: 2vh !important;
+}
+
+#venue-table_info {
+    color: #fff !important;
+}
+
+#venue-table th {
+    background-color: #800000;
+    color: #fff;
+}
+
+#venue-table tbody tr:nth-child(2n) {
+    background-color: #dbdbdb;
+}
+
+.create-button {
+    margin-top: 2vh !important;
+    border: none;
+    border-radius: 10px;
+    height: 4vh;
+    width: 10%;
+    font-weight: 700;
+    transition: all .3s;
+}
+
+    /*animation and pseudoselectors*/
+    .create-button:hover {
+        background-color: #6e6d6d;
+        color: #fff;
+    }
+
+@media (min-width:768px) and (max-width: 991px) {
+    #content-wrapper {
+        margin-top: 19vh !important;
+    }
+}

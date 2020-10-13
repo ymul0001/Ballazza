@@ -248,6 +248,7 @@
     <Content Include="Content\Login.css" />
     <Content Include="Content\Register.css" />
     <Content Include="Content\Venues.css" />
+    <Content Include="Content\VenuesAdmin.css" />
     <Content Include="Content\WorkshopCreate.css" />
     <Content Include="Content\WorkshopUpdate.css" />
     <Content Include="favicon.ico" />
@@ -265,6 +266,7 @@
       <LastGenOutput>BallazzaModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\adminBookings.js" />
+    <Content Include="Scripts\adminVenues.js" />
     <Content Include="Scripts\adminWorkshops.js" />
     <Content Include="Scripts\bookings.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -347,6 +349,7 @@
     <Content Include="Views\Venues\Edit.cshtml" />
     <Content Include="Views\Venues\Index.cshtml" />
     <Content Include="Views\Bookings\GetWorkshopDetails.cshtml" />
+    <Content Include="Views\Venues\AdminIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

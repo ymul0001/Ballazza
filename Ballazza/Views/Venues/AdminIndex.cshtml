@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "AdminIndex";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@Styles.Render("~/Content/VenuesAdmin.css")
+
+<div id="content-wrapper">
+    <button class="create-button">
+        create item
+    </button>
+    <table id="venue-table" class="ui celled table" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Venue id
+                </th>
+                <th>
+                    Venue name
+                </th>
+                <th>
+                    street
+                </th>
+                <th>
+                    suburb
+                </th>
+                <th>
+                    state
+                </th>
+                <th>
+                    postcode
+                </th>
+                <th>
+                    phone
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@Styles.Render("//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css")
+@Scripts.Render("//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js")
+@Scripts.Render("https://cdn.datatables.net/1.10.21/js/dataTables.semanticui.min.js")
+@Scripts.Render("https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js")
+@Scripts.Render("~/Scripts/adminVenues.js")
