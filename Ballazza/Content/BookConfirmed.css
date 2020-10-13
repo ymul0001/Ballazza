@@ -1,0 +1,102 @@
+﻿body {
+    background-color: #1c222b !important;
+    background-size: cover !important;
+}
+
+.form-control {
+    background: transparent !important;
+    border: none !important;
+    color: #fff !important;
+}
+
+.confirmation-section {
+    margin-top: 17vh !important;
+    color: #fff;
+}
+
+.confirmation-warning {
+    font-size: 2rem !important;
+}
+
+.confirmation-set {
+    margin-top: 3vh;
+    display: flex;
+}
+
+.book-button {
+    display: block;
+    background-color: #AE3535;
+    border: none;
+    height: 5vh !important;
+    font-weight: 700;
+    transition: all .3s;
+    width: 80% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    margin-bottom: 1.5vh;
+}
+
+
+.back-button {
+    background-color: #C3C3C3 !important;
+    display: block !important;
+    border: none !important;
+    height: 5vh !important;
+    transition: all .3s !important;
+    color: #000 !important;
+    font-weight: 700 !important;
+    line-height: 2.7vh !important;
+    width: 80%;
+    margin: auto;
+}
+
+
+.book-button:hover {
+    background-color: #782424;
+    color: #fff;
+    transform: scale(.98);
+}
+
+.back-button:hover {
+    background-color: #595858 !important;
+    color: #fff !important;
+    transform: scale(.98);
+}
+
+@media only screen and (min-width: 480px) {
+    .back-button {
+        width: 58% !important; 
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .confirmation-section {
+        margin-top: 45vh !important;
+    }
+
+    .buttons {
+        display: flex;
+    }
+
+    .back-button {
+        margin-top: 0;
+        width: 40% !important;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .buttons {
+        display: flex;
+    }
+
+    .back-button {
+        margin-top: 0;
+        width: 30% !important;
+        line-height: 3.5vh !important;
+    }
+
+    .back-button,
+    .book-button {
+        margin: 1.5vw !important;
+    }
+}

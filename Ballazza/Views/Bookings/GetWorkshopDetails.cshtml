@@ -5,43 +5,37 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@Styles.Render("~/Content/BookConfirmed.css")
 @using (Html.BeginForm("Create","Bookings")) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Booking</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-horizontal confirmation-section">
+        <h3>Recipient's confirmation ticket</h3>
         <div class="form-group">
-            @Html.LabelFor(model => model.Id, "User Id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @type="hidden" } })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.WorkshopId, "Workshop Id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.WorkshopId, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.EditorFor(model => model.WorkshopId, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.WorkshopId, "", new { @class = "text-danger" })
             </div>
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.BookingDate, "Booking date", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
                 @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
+        <p class="booking-confirmation confirmation-warning"> Are you sure you want to book this session? </p>
+        <div class="form-group buttons">
+            <input type="submit" value="Finalise booking!" class="btn btn-default book-button" />
+            <a href="Index" class="btn btn-primary back-button">See more workshops</a>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
