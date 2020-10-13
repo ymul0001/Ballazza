@@ -35,7 +35,9 @@
             },
             {
                 "render": function (data, type, row) {
-                    return `<button class="book-button" style="border-radius: 20px;min-width: 5vw !important;border: none;background-color: #B86D00 !important;color: #fff;min-height: 3vh !important;">Cancel</button>`
+                    return `
+                                <button class="book-button" style="border-radius: 20px;min-width: 5vw !important;border: none;background-color: #B86D00 !important;color: #fff;min-height: 3vh !important;">Cancel</button>
+                            `
                 },
                 "autowidth": true
             }

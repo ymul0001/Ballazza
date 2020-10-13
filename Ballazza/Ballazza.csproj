@@ -345,6 +345,7 @@
     <Content Include="Views\Venues\Details.cshtml" />
     <Content Include="Views\Venues\Edit.cshtml" />
     <Content Include="Views\Venues\Index.cshtml" />
+    <Content Include="Views\Bookings\GetWorkshopDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

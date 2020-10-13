@@ -11,14 +11,18 @@ namespace Ballazza.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Booking
     {
+        [Required]
         public int BookingId { get; set; }
+        [Required]
         public string Id { get; set; }
+        [Required]
         public int WorkshopId { get; set; }
+        [Required]
         public System.DateTime BookingDate { get; set; }
-    
         public virtual Workshop Workshop { get; set; }
     }
 }

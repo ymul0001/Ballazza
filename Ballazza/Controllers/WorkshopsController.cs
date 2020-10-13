@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Ballazza.Models;
+using Microsoft.AspNet.Identity;
 
 namespace Ballazza.Controllers
 {
@@ -34,7 +35,6 @@ namespace Ballazza.Controllers
         //GET: Workshops/GetWorkshopList
         [AllowAnonymous]
         public ActionResult GetWorkshopList() {
-
             var workshopsList = db.Workshops.Include(w => w.Venue).ToList();
             return Json(
                 new { 

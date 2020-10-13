@@ -31,7 +31,7 @@ namespace Ballazza.Controllers
             return View();
         }
 
-        /*
+       /*
         // GET: Bookings/Details/5
         public ActionResult Details(int? id)
         {
@@ -73,6 +73,49 @@ namespace Ballazza.Controllers
                             })
                 }, JsonRequestBehavior.AllowGet); ;
         }
+
+        // GET: Bookings/GetWorkshopDetails/1001
+        [Authorize(Roles = "User")]
+        public ActionResult GetWorkshopDetails(int? WorkshopId)
+        {
+            if (WorkshopId != null)
+            {
+                Booking model = new Booking
+                {
+                    Id = User.Identity.GetUserId(),
+                    WorkshopId = WorkshopId ?? default,
+                    BookingDate = DateTime.Now,
+                };
+                return View(model);
+            }
+            //ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "VenueName");
+            else { 
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
+        // POST: Bookings/Create
+        [Authorize(Roles = "User")]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "BookingId, Id, WorkshopId, BookingDate")] Booking booking)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Bookings.Add(booking);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Index");
+        }
+
+        /*
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Create(int Id)
+        {
+            return RedirectToAction("Workshops/Index");
+        }
+        */
 
         // GET: Bookings/Delete/5
         [Authorize(Roles = "Administrator")]
