@@ -146,7 +146,7 @@ namespace Ballazza.Controllers
             {
                 return HttpNotFound();
             }
-            return RedirectToAction("AdminIndex");
+            return View();
         }
 
         // POST: Venues/Delete/5
@@ -157,7 +157,7 @@ namespace Ballazza.Controllers
             Venue venue = db.Venues.Find(id);
             db.Venues.Remove(venue);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminIndex");
         }
 
         protected override void Dispose(bool disposing)

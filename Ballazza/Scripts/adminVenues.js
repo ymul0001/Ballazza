@@ -29,5 +29,5 @@
 });
 
 $(".create-button").click(function () {
-    window.location.href = "/Workshops/Create";
+    window.location.href = "/Venues/Create";
 });

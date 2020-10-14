@@ -1,0 +1,73 @@
+﻿body {
+    background: linear-gradient(0deg, rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url('./img/melbourne.jpg') no-repeat fixed center !important;
+    background-size: cover !important;
+}
+
+.venue-update-form {
+    margin-top: 15vh !important;
+    padding-top: 5vh !important;
+    /*color: #fff !important;*/
+    background-color: #ffffff;
+    height: 68vh !important;
+    width: 70% !important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-left: .4rem;
+    border-radius: 20px;
+}
+
+.fields {
+    margin-top: 7vh;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.field-validation-error {
+    font-size: .9rem;
+}
+
+.form-title {
+    margin-bottom: 4vh !important;
+    padding-top: 2vh;
+    font-size: 2rem;
+    color: #852121;
+}
+
+.form-group {
+    margin-top: 3vh !important;
+    width: 100%;
+}
+
+.save-button {
+    border: none;
+    display: block;
+    background-color: #C93131;
+    color: #fff;
+    font-weight: bold;
+    width: 100%;
+    border-radius: 20px;
+    height: 4vh;
+    transition: all .3s;
+}
+
+
+    /*Animations and pseudoselectors*/
+    .save-button:hover {
+        background-color: darkslategray !important;
+        color: #fff;
+        transform: scale(.99)
+    }
+
+@media screen and (min-width: 768px) {
+    .fields {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .fields {
+        width: 50%;
+    }
+}
