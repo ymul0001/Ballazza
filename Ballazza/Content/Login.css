@@ -3,6 +3,15 @@
     background-size: cover;
 }
 
+.validation-summary-errors ul {
+    list-style-type: none !important;
+    padding-left: 0;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
 .login-form {
     margin-top: 7vh;
     text-align: center;

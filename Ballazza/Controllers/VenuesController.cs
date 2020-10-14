@@ -15,6 +15,8 @@ namespace Ballazza.Controllers
         private BallazzaEntities db = new BallazzaEntities();
 
         // GET: Venues
+
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Venues.ToList());
@@ -65,6 +67,7 @@ namespace Ballazza.Controllers
                 }, JsonRequestBehavior.AllowGet); ;
         }
 
+        /*
         // GET: Venues/Details/5
         public ActionResult Details(int? id)
         {
@@ -79,7 +82,9 @@ namespace Ballazza.Controllers
             }
             return View(venue);
         }
+        */
 
+        [Authorize(Roles = "Administrator")]
         // GET: Venues/Create
         public ActionResult Create()
         {
@@ -89,6 +94,7 @@ namespace Ballazza.Controllers
         // POST: Venues/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "VenueId,VenueName,VenueStreet,VenueSuburb,VenueState,VenuePostcode,VenuePhoneno")] Venue venue)
@@ -103,7 +109,9 @@ namespace Ballazza.Controllers
             return View(venue);
         }
 
+
         // GET: Venues/Edit/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -123,18 +131,20 @@ namespace Ballazza.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult Edit([Bind(Include = "VenueId,VenueName,VenueStreet,VenueSuburb,VenueState,VenuePostcode,VenuePhoneno")] Venue venue)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(venue).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AdminIndex");
             }
             return View(venue);
         }
 
         // GET: Venues/Delete/5
+        [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -152,6 +162,7 @@ namespace Ballazza.Controllers
         // POST: Venues/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public ActionResult DeleteConfirmed(int id)
         {
             Venue venue = db.Venues.Find(id);

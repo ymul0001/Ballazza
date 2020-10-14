@@ -16,6 +16,8 @@
             {
                 @Html.AntiForgeryToken()
                 <h2 class="register-title">Sign up</h2>
+                <!--Only model errors are displayed by the validation summary (true)-->
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Fname, new { @class = "col-md-1 col-md-offset-1 control-label" })
                     <div class="col-xs-offset-3 col-md-7 col-md-offset-2">

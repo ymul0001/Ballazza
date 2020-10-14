@@ -17,6 +17,9 @@ namespace Ballazza.Controllers
         [AllowAnonymous]
         public ActionResult Index()
         {
+            if (TempData["userInfo"] != null) { 
+                ViewBag.UserInfo= TempData["userInfo"].ToString();
+            }
             return View();
         }
 

@@ -1,7 +1,13 @@
 ﻿@Styles.Render("~/Content/Home.css")
 
-<div class="jumbotron">
-    <h1 class="jumbotron-title">Ballazza</h1>
-    <p class="lead jumbotron-lead">Melbourne's #1 instructional basketball camp since 2020.</p>
-    <button class="jumbotron-subs">Find out more!</button>
-</div>
+    <div class="jumbotron">
+        @if (ViewBag.userInfo == null)
+        {
+            <h1 class="jumbotron-title">Ballazza</h1>
+        }
+        else { 
+            <h1 class="jumbotron-title">@ViewBag.userInfo</h1>
+        }
+        <p class="lead jumbotron-lead">Melbourne's #1 instructional basketball camp since 2020.</p>
+        <button class="jumbotron-subs">Find out more!</button>
+    </div>

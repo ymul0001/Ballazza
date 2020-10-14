@@ -72,7 +72,7 @@ namespace Ballazza.Controllers
         public ActionResult Create()
         {
             ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "VenueName");
-            return View();
+            return RedirectToAction("/Workshops/AdminIndex");
         }
 
 

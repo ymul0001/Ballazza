@@ -48,12 +48,12 @@ namespace Ballazza.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Email cannot be blank")]
         [Display(Name = "Email")]
         [EmailAddress]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Password cannot be blank")]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
@@ -65,22 +65,23 @@ namespace Ballazza.Models
     public class RegisterViewModel
     {
         [Display(Name = "First name")]
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "field cannot be empty")]
         public string Fname { get; set; }
         [Display(Name = "Last name")]
-        [Required(AllowEmptyStrings = false)]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "field cannot be empty")]
         public string Lname { get; set; }
-        [Required]
+        [Required(ErrorMessage = "field cannot be empty")]
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "field cannot be empty")]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
         public string Password { get; set; }
 
+        [Required(ErrorMessage = "field cannot be empty")]
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
