@@ -13,6 +13,7 @@
         <h3>Recipient's confirmation ticket</h3>
         <div class="form-group">
             <div class="col-md-10">
+                <!--Type=hidden replace the usual HiddenFor-->
                 @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", @type="hidden" } })
             </div>
         </div>

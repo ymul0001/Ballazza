@@ -104,6 +104,7 @@ namespace Ballazza.Controllers
             {
                 db.Bookings.Add(booking);
                 db.SaveChanges();
+                new MailController().SendBookingNotificationEmail(User.Identity.GetUserName(), booking.WorkshopId, booking.BookingDate);
             }
             return RedirectToAction("Index");
         }
