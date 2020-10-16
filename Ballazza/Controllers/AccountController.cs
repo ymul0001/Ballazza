@@ -53,6 +53,12 @@ namespace Ballazza.Controllers
             }
         }
 
+        [AllowAnonymous]
+        public ActionResult RegistrationConfirmation()
+        {
+            return View();
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -74,18 +80,25 @@ namespace Ballazza.Controllers
                 return View(model);
             }
 
-           // var email = await UserManager.FindByEmail(model.Email);
+            // var email = await UserManager.FindByEmail(model.Email);
 
             /*
-
             if (UserManager.FindByEmail(model.Email) == null) { 
                 ModelState.AddModelError()
             };
             */
 
+            //check if email is confirmed
+            var userid = UserManager.FindByEmail(model.Email).Id;
+            if (!UserManager.IsEmailConfirmed(userid))
+            {
+                ModelState.AddModelError("", "Email is not confirmed yet");
+                return View(model);
+            }
+
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: true);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -179,7 +192,7 @@ namespace Ballazza.Controllers
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     
                     UserManager.AddToRole(user.Id, "User");
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("RegistrationConfirmation", "Account");
                 }
                 AddErrors(result);
             }
