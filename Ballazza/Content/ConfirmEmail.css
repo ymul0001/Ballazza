@@ -1,0 +1,33 @@
+﻿body {
+    background-color: #1c222b;
+    background-size: cover !important;
+}
+
+.confirmation-section {
+    margin-top: 35vh !important;
+    color: #fff;
+}
+
+.confirmation-section {
+    font-size: 1.3rem !important;
+}
+
+
+.login-button {
+    background-color: #AE3535 ;
+    display: block;
+    border: none;
+    max-width: 15% !important;
+    height: 6vh !important;
+    margin-right: 3rem;
+    font-weight: 700;
+    transition: all .3s;
+    padding-top: 1.7vh;
+}
+
+
+.delete-button:hover {
+    background-color: #782424;
+    transform: scale(.98);
+}
+

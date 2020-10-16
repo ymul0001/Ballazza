@@ -1,10 +1,9 @@
-﻿@{
-    ViewBag.Title = "Confirm Email";
-}
+﻿
 
-<h2>@ViewBag.Title.</h2>
-<div>
-    <p>
-        Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+@Styles.Render("~/Content/ConfirmEmail.css")
+<div class="confirmation-section">
+    <p class="confirmation-message">
+        Thank you for confirming your email. Enjoy browsing through our application.
     </p>
+    <a href="/Account/Login" class="btn btn-primary login-button">Click here to Log in</a>
 </div>

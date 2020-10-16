@@ -9,7 +9,15 @@ namespace Ballazza.Controllers
 {
     public class MailController : Controller
     {
-       
+        SmtpClient smtp = new SmtpClient
+        {
+            Host = "smtp.gmail.com",
+            DeliveryMethod = SmtpDeliveryMethod.Network,
+            Port = 587,
+            UseDefaultCredentials = false,
+            Credentials = new System.Net.NetworkCredential("omhaohao@gmail.com", "3qtngHSa"),
+            EnableSsl = true
+        };
         //Send notification email for successful bookings
         /*
         public void AssignSmtpDetails() {
@@ -20,16 +28,7 @@ namespace Ballazza.Controllers
         [HttpPost]
         public void SendBookingNotificationEmail(string ReceiverEmail, int WorkshopId, System.DateTime BookingTime)
         {
-            try {
-                SmtpClient smtp = new SmtpClient
-                {
-                    Host = "smtp.gmail.com",
-                    DeliveryMethod = SmtpDeliveryMethod.Network,
-                    Port = 587,
-                    UseDefaultCredentials = false,
-                    Credentials = new System.Net.NetworkCredential("albertusyonas15@gmail.com", "15januari96"),
-                    EnableSsl = true
-                };
+            try {              
                 MailMessage email = new MailMessage();
                 email.From = new MailAddress("albertusyonas15@gmail.com");
                 email.To.Add(ReceiverEmail);
