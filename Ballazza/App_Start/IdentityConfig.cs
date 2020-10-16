@@ -30,7 +30,14 @@ namespace Ballazza
 
         void sendMail(IdentityMessage message)
         {
-            string html = "<h1>Welcome to Ballazza!</h1><br/><p>Please confirm your account by clicking this link: <a href=\"" + message.Body + "\">link</a><br/></p>";
+            string html = "";
+            if (message.Body.Substring(0, 6) != "Please")
+            {
+                html = "<h1>Welcome to Ballazza!</h1><br/><p>Please confirm your account by clicking this link: <a href=\"" + message.Body + "\">link</a><br/></p>";
+            }
+            else {
+                html = message.Body;
+            }
    
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress("omhaohao@gmail.com");

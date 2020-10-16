@@ -245,11 +245,14 @@
     <Content Include="Content\ConfirmEmail.css" />
     <Content Include="Content\DeleteConfirmed.css" />
     <Content Include="Content\ExternalLogin.css" />
+    <Content Include="Content\ForgotPassword.css" />
+    <Content Include="Content\ForgotPasswordConfirmation.css" />
     <Content Include="Content\Global.css" />
     <Content Include="Content\Home.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\Register.css" />
     <Content Include="Content\RegistrationConfirmation.css" />
+    <Content Include="Content\ResetPassword.css" />
     <Content Include="Content\Venues.css" />
     <Content Include="Content\VenuesAdmin.css" />
     <Content Include="Content\VenuesCreate.css" />
