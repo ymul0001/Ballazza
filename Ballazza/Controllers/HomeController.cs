@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,24 @@ namespace Ballazza.Controllers
     {
         [Authorize(Roles = "Administrator")]
         public ActionResult AdminIndex() {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Chat()
+        {
+            if (User.Identity.GetUserId() == null)
+            {
+                ViewBag.user = "anonymous";
+            }
+            else {
+                if (User.IsInRole("Administrator")) {
+                    ViewBag.user = "admin";
+                }
+                else {
+                    ViewBag.user = User.Identity.GetUserName();
+                }
+            }
             return View();
         }
 

@@ -115,3 +115,7 @@ C:\IT\Monash\FIT5032\assessment\major_assignment\Ballazza\Ballazza1.0\Ballazza\B
 C:\IT\Monash\FIT5032\assessment\major_assignment\Ballazza\Ballazza1.0\Ballazza\Ballazza\obj\Debug\Ballazza.Migrations.InitialCreate.resources
 C:\IT\Monash\FIT5032\assessment\major_assignment\Ballazza\Ballazza1.0\Ballazza\Ballazza\obj\Debug\Ballazza.csproj.GenerateResource.cache
 C:\IT\Monash\FIT5032\assessment\major_assignment\Ballazza\Ballazza1.0\Ballazza\Ballazza\obj\Debug\Ballazza.Migrations.addfirstandlastname.resources
+C:\IT\Monash\FIT5032\assessment\major_assignment\Ballazza\Ballazza1.0\Ballazza\Ballazza\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\IT\Monash\FIT5032\assessment\major_assignment\Ballazza\Ballazza1.0\Ballazza\Ballazza\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\IT\Monash\FIT5032\assessment\major_assignment\Ballazza\Ballazza1.0\Ballazza\Ballazza\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\IT\Monash\FIT5032\assessment\major_assignment\Ballazza\Ballazza1.0\Ballazza\Ballazza\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
