@@ -12,6 +12,7 @@ namespace Ballazza.Controllers
     {
         [Authorize(Roles = "Administrator")]
         public ActionResult AdminIndex() {
+            ViewBag.Message = TempData["message"];
             return View();
         }
 

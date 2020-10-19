@@ -228,6 +228,7 @@
       <DependentUpon>BallazzaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MailModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Rating.cs">
       <DependentUpon>BallazzaModel.tt</DependentUpon>
@@ -248,6 +249,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\BulkEmail.css" />
     <Content Include="Content\Camps.css" />
     <Content Include="Content\ChatApp.css" />
     <Content Include="Content\ConfirmEmail.css" />
@@ -314,6 +316,7 @@
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\datepickerHandler.js" />
+    <Content Include="Scripts\notify.min.js" />
     <Content Include="Scripts\venues.js" />
     <Content Include="Scripts\workshops.js" />
     <Content Include="Web.config" />
@@ -372,10 +375,10 @@
     <Content Include="Views\Venues\AdminIndex.cshtml" />
     <Content Include="Views\Account\RegistrationConfirmation.cshtml" />
     <Content Include="Views\Home\Chat.cshtml" />
+    <Content Include="Views\Mail\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Mail\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

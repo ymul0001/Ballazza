@@ -5,6 +5,15 @@
 
 @Styles.Render("~/Content/Home.css")
 
+@if (ViewBag.Message == "Sent")
+{
+    <input type="hidden" id="viewbag" value="Sent" />
+}
+else
+{
+    <input type="hidden" id="viewbag" value="" />
+}
+
 <div class="jumbotron">
     <h1 class="jumbotron-title">Ballazza Admin</h1>
     <p class="lead jumbotron-lead">Welcome to the Ballazza Admin Panel. Please select relevant menus from the navigation bar above.</p>
@@ -12,4 +21,14 @@
 </div>
 
 @Scripts.Render("~/Scripts/AdminHome.js")
+
+<script>
+    $(document).ready(function () {
+        var viewbag = $("#viewbag").val();
+        console.log(viewbag);
+        if (viewbag == 'Sent') {
+            $.notify("Successfully sent advertisements", "success");
+        }
+    });
+</script>
 

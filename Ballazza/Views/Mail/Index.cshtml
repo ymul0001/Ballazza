@@ -1,0 +1,50 @@
+﻿@model Ballazza.Models.MailModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@Styles.Render("~/Content/BulkEmail.css")
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+
+@using (@Html.BeginForm("SendBulkEmail", "Mail", FormMethod.Post, new { @id = "form1", @class = "", @enctype = "multipart/form-data" }))
+{
+    <h2 class="form-title">Send Advertisement</h2>
+    @Html.ValidationSummary()
+    <table>
+        <tr class="form-row">
+            <td>
+                To:
+            </td>
+            <td>
+                @Html.TextAreaFor(m => m.To, new { @class = "text", @rows = 5, @placeholder= "i.e. email1; email2"})
+            </td>
+        </tr>
+        <tr class="form-row">
+            <td>
+                Subject:
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.Subject, new { @class = "text subject", @placeholder = "write the email subject here" })
+            </td>
+        </tr>
+        <tr class="form-row">
+            <td>
+                Attachment:
+            </td>
+            <td>
+                <input type="file" name="fileUploader" />
+            </td>
+        </tr>
+        <tr class="form-row">
+            <td>
+                Body:
+            </td>
+            <td>
+                @Html.TextAreaFor(m => m.Body, new { @class = "text", @rows = 10, @placeholder = "write email body here" })
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Send" class="submit-button" />
+}

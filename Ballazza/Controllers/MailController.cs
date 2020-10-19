@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
@@ -42,6 +44,51 @@ namespace Ballazza.Controllers
             {
                 throw ex;//throw the exception
             };
+        }
+
+        [Authorize(Roles ="Administrator")]
+        public ActionResult Index() {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Administrator")]
+        public ActionResult SendBulkEmail(Ballazza.Models.MailModel objModelMail, HttpPostedFileBase fileUploader)
+
+        {
+            if (ModelState.IsValid)
+            {
+                string from = "omhaohao@gmail.com";
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential networkCredential = new NetworkCredential(from, "3qtngHSa");
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = networkCredential;
+                smtp.Port = 587;
+                string[] emails = objModelMail.To.Split(';');
+                foreach (var email in emails)
+                {
+                    using (MailMessage mail = new MailMessage(from, email))
+                    {
+                        mail.Subject = objModelMail.Subject;
+                        mail.Body = objModelMail.Body;
+                        if (fileUploader != null)
+                        {
+                            string fileName = Path.GetFileName(fileUploader.FileName);
+                            mail.Attachments.Add(new Attachment(fileUploader.InputStream, fileName));
+                        }
+                        mail.IsBodyHtml = false;
+                        smtp.Send(mail);
+                    }
+                }
+                TempData["message"] = "Sent";
+                return RedirectToAction("AdminIndex","Home");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
