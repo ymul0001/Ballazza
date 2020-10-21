@@ -16,10 +16,7 @@ namespace Ballazza.Models
     {
         public int RatingId { get; set; }
         public string Id { get; set; }
-        public int VenueId { get; set; }
         public decimal RatingValue { get; set; }
         public string RatingFeedback { get; set; }
-    
-        public virtual Venue Venue { get; set; }
     }
 }

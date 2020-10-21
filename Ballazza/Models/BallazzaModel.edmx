@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Booking">
           <Key>
             <PropertyRef Name="BookingId" />
@@ -20,7 +20,6 @@
           </Key>
           <Property Name="RatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="VenueId" Type="int" Nullable="false" />
           <Property Name="RatingValue" Type="decimal" Precision="2" Scale="1" Nullable="false" />
           <Property Name="RatingFeedback" Type="nvarchar" MaxLength="320" />
         </EntityType>
@@ -59,18 +58,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rating__VenueId__403A8C7D">
-          <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
-          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Venue">
-              <PropertyRef Name="VenueId" />
-            </Principal>
-            <Dependent Role="Rating">
-              <PropertyRef Name="VenueId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Workshop__VenueI__38996AB5">
           <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
           <End Role="Workshop" Type="Self.Workshop" Multiplicity="*" />
@@ -92,17 +79,12 @@
             <End Role="Workshop" EntitySet="Workshop" />
             <End Role="Booking" EntitySet="Booking" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rating__VenueId__403A8C7D" Association="Self.FK__Rating__VenueId__403A8C7D">
-            <End Role="Venue" EntitySet="Venue" />
-            <End Role="Rating" EntitySet="Rating" />
-          </AssociationSet>
           <AssociationSet Name="FK__Workshop__VenueI__38996AB5" Association="Self.FK__Workshop__VenueI__38996AB5">
             <End Role="Venue" EntitySet="Venue" />
             <End Role="Workshop" EntitySet="Workshop" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -116,17 +98,6 @@
           <Property Name="BookingDate" Type="DateTime" Nullable="false" Precision="0" />
           <NavigationProperty Name="Workshop" Relationship="Self.FK__Booking__Worksho__3C69FB99" FromRole="Booking" ToRole="Workshop" />
         </EntityType>
-        <EntityType Name="Rating">
-          <Key>
-            <PropertyRef Name="RatingId" />
-          </Key>
-          <Property Name="RatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="VenueId" Type="Int32" Nullable="false" />
-          <Property Name="RatingValue" Type="Decimal" Precision="2" Scale="1" Nullable="false" />
-          <Property Name="RatingFeedback" Type="String" MaxLength="320" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Venue" Relationship="Self.FK__Rating__VenueId__403A8C7D" FromRole="Rating" ToRole="Venue" />
-        </EntityType>
         <EntityType Name="Venue">
           <Key>
             <PropertyRef Name="VenueId" />
@@ -138,7 +109,6 @@
           <Property Name="VenueState" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="VenuePostcode" Type="Int32" Nullable="false" />
           <Property Name="VenuePhoneno" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Ratings" Relationship="Self.FK__Rating__VenueId__403A8C7D" FromRole="Venue" ToRole="Rating" />
           <NavigationProperty Name="Workshops" Relationship="Self.FK__Workshop__VenueI__38996AB5" FromRole="Venue" ToRole="Workshop" />
         </EntityType>
         <EntityType Name="Workshop">
@@ -166,18 +136,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rating__VenueId__403A8C7D">
-          <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
-          <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Venue">
-              <PropertyRef Name="VenueId" />
-            </Principal>
-            <Dependent Role="Rating">
-              <PropertyRef Name="VenueId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Workshop__VenueI__38996AB5">
           <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
           <End Role="Workshop" Type="Self.Workshop" Multiplicity="*" />
@@ -192,22 +150,27 @@
         </Association>
         <EntityContainer Name="BallazzaEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Bookings" EntityType="Self.Booking" />
-          <EntitySet Name="Ratings" EntityType="Self.Rating" />
           <EntitySet Name="Venues" EntityType="Self.Venue" />
           <EntitySet Name="Workshops" EntityType="Self.Workshop" />
           <AssociationSet Name="FK__Booking__Worksho__3C69FB99" Association="Self.FK__Booking__Worksho__3C69FB99">
             <End Role="Workshop" EntitySet="Workshops" />
             <End Role="Booking" EntitySet="Bookings" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rating__VenueId__403A8C7D" Association="Self.FK__Rating__VenueId__403A8C7D">
-            <End Role="Venue" EntitySet="Venues" />
-            <End Role="Rating" EntitySet="Ratings" />
-          </AssociationSet>
           <AssociationSet Name="FK__Workshop__VenueI__38996AB5" Association="Self.FK__Workshop__VenueI__38996AB5">
             <End Role="Venue" EntitySet="Venues" />
             <End Role="Workshop" EntitySet="Workshops" />
           </AssociationSet>
+          <EntitySet Name="Ratings" EntityType="Model.Rating" />
         </EntityContainer>
+        <EntityType Name="Rating">
+          <Key>
+            <PropertyRef Name="RatingId" />
+          </Key>
+          <Property Name="RatingId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="RatingValue" Type="Decimal" Nullable="false" Precision="2" Scale="1" />
+          <Property Name="RatingFeedback" Type="String" MaxLength="320" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -221,17 +184,6 @@
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="WorkshopId" ColumnName="WorkshopId" />
                 <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Ratings">
-            <EntityTypeMapping TypeName="Model.Rating">
-              <MappingFragment StoreEntitySet="Rating">
-                <ScalarProperty Name="RatingId" ColumnName="RatingId" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="VenueId" ColumnName="VenueId" />
-                <ScalarProperty Name="RatingValue" ColumnName="RatingValue" />
-                <ScalarProperty Name="RatingFeedback" ColumnName="RatingFeedback" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -257,6 +209,16 @@
                 <ScalarProperty Name="WorkshopEndDate" ColumnName="WorkshopEndDate" />
                 <ScalarProperty Name="WorkshopQuota" ColumnName="WorkshopQuota" />
                 <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ratings">
+            <EntityTypeMapping TypeName="Model.Rating">
+              <MappingFragment StoreEntitySet="Rating">
+                <ScalarProperty Name="RatingFeedback" ColumnName="RatingFeedback" />
+                <ScalarProperty Name="RatingValue" ColumnName="RatingValue" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="RatingId" ColumnName="RatingId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

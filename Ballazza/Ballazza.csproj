@@ -194,6 +194,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RatingsController.cs" />
     <Compile Include="Controllers\VenuesController.cs" />
     <Compile Include="Controllers\WorkshopsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -260,6 +261,7 @@
     <Content Include="Content\Global.css" />
     <Content Include="Content\Home.css" />
     <Content Include="Content\Login.css" />
+    <Content Include="Content\Rating.css" />
     <Content Include="Content\Register.css" />
     <Content Include="Content\RegistrationConfirmation.css" />
     <Content Include="Content\ResetPassword.css" />
@@ -317,6 +319,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\datepickerHandler.js" />
     <Content Include="Scripts\notify.min.js" />
+    <Content Include="Scripts\Rating.js" />
     <Content Include="Scripts\venues.js" />
     <Content Include="Scripts\workshops.js" />
     <Content Include="Web.config" />
@@ -376,6 +379,11 @@
     <Content Include="Views\Account\RegistrationConfirmation.cshtml" />
     <Content Include="Views\Home\Chat.cshtml" />
     <Content Include="Views\Mail\Index.cshtml" />
+    <Content Include="Views\Ratings\Create.cshtml" />
+    <Content Include="Views\Ratings\Delete.cshtml" />
+    <Content Include="Views\Ratings\Details.cshtml" />
+    <Content Include="Views\Ratings\Edit.cshtml" />
+    <Content Include="Views\Ratings\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

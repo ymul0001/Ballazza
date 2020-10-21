@@ -415,14 +415,11 @@ namespace Ballazza.Controllers
             return View(model);
         }
 
-        //
-        // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult LogOff()
         {
-            AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            /*AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);*/
+            return RedirectToAction("Create", "Ratings");
         }
 
         //

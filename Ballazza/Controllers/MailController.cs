@@ -59,13 +59,15 @@ namespace Ballazza.Controllers
             if (ModelState.IsValid)
             {
                 string from = "omhaohao@gmail.com";
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                NetworkCredential networkCredential = new NetworkCredential(from, "3qtngHSa");
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = networkCredential;
-                smtp.Port = 587;
+                /*
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.EnableSsl = true;
+                    NetworkCredential networkCredential = new NetworkCredential(from, "3qtngHSa");
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = networkCredential;
+                    smtp.Port = 587;
+                */
                 string[] emails = objModelMail.To.Split(';');
                 foreach (var email in emails)
                 {

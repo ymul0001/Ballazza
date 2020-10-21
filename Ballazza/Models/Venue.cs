@@ -11,51 +11,23 @@ namespace Ballazza.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Venue
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Venue()
         {
-            this.Ratings = new HashSet<Rating>();
             this.Workshops = new HashSet<Workshop>();
         }
-
-        [Display(Name = "Id")]
+    
         public int VenueId { get; set; }
-        
-        [Required(ErrorMessage = "Name cannot be empty")]
-        [Display(Name = "Name")]
-        [DataType(DataType.Text)]
         public string VenueName { get; set; }
-
-        [Required(ErrorMessage = "Street cannot be empty")]
-        [Display(Name = "Street")]
-        [DataType(DataType.Text)]
         public string VenueStreet { get; set; }
-
-        [Required(ErrorMessage = "Suburb cannot be empty")]
-        [Display(Name = "Suburb")]
-        [DataType(DataType.Text)]
         public string VenueSuburb { get; set; }
-
-        [Required(ErrorMessage = "State cannot be empty")]
-        [Display(Name = "State")]
-        [DataType(DataType.Text)]
         public string VenueState { get; set; }
-
-        [Required(ErrorMessage = "Postcode cannot be empty")]
-        [Display(Name = "Post code")]
         public int VenuePostcode { get; set; }
-
-        [Required(ErrorMessage = "phone number cannot be empty")]
-        [Display(Name = "Phone number")]
-        [DataType(DataType.Text)]
         public string VenuePhoneno { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rating> Ratings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Workshop> Workshops { get; set; }
     }

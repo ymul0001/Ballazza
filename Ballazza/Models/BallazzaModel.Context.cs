@@ -26,8 +26,8 @@ namespace Ballazza.Models
         }
     
         public virtual DbSet<Booking> Bookings { get; set; }
-        public virtual DbSet<Rating> Ratings { get; set; }
         public virtual DbSet<Venue> Venues { get; set; }
         public virtual DbSet<Workshop> Workshops { get; set; }
+        public virtual DbSet<Rating> Ratings { get; set; }
     }
 }

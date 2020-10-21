@@ -1,0 +1,76 @@
+﻿body {
+    background: #333;
+    color: #000;
+}
+
+.rating-feedback {
+    color: #000 !important;
+    height: 200px;
+    padding: 0;
+    margin: auto;
+}
+
+.form-title {
+    font-size: 2rem;
+    margin-bottom: 3vh;
+}
+
+.feedback-form {
+    background: #fff;
+    width: 40%;
+    margin: auto;
+    height: 82vh;
+    margin-top: 5vh;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#rateYo {
+    margin: auto;
+    width: 80%;
+}
+
+.feedback-label {
+    display: block !important;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vh !important;
+    font-weight: 400 !important;
+    font-size: 1.2rem;
+}
+
+.rate-button {
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2vh;
+    background-color: #a62330;
+    color: #fff;
+    height: 6vh;
+    transition: all .2s;
+}
+
+    .rate-button:hover {
+        background-color: darkred;
+        color: #fff;
+        transform: scale(.99);
+    }
+
+.back-button {
+    display: block !important;
+    margin-top: 2vh !important;
+    font-weight: 700 !important;
+    color: #000;
+}
+
+    .back-button:hover {
+        text-decoration: none !important;
+    }
+
+@media (min-width: 768px) and (max-width:1200) {
+    .feedback-label {
+        width: 100% !important;
+    }
+} 

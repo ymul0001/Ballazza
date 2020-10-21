@@ -11,17 +11,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Ratings">
-      <EntityTypeMapping TypeName="Model.Rating">
-        <MappingFragment StoreEntitySet="Rating">
-          <ScalarProperty Name="RatingId" ColumnName="RatingId" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="VenueId" ColumnName="VenueId" />
-          <ScalarProperty Name="RatingValue" ColumnName="RatingValue" />
-          <ScalarProperty Name="RatingFeedback" ColumnName="RatingFeedback" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Venues">
       <EntityTypeMapping TypeName="Model.Venue">
         <MappingFragment StoreEntitySet="Venue">
@@ -44,6 +33,16 @@
           <ScalarProperty Name="WorkshopEndDate" ColumnName="WorkshopEndDate" />
           <ScalarProperty Name="WorkshopQuota" ColumnName="WorkshopQuota" />
           <ScalarProperty Name="VenueId" ColumnName="VenueId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="Model.Rating">
+        <MappingFragment StoreEntitySet="Rating">
+          <ScalarProperty Name="RatingFeedback" ColumnName="RatingFeedback" />
+          <ScalarProperty Name="RatingValue" ColumnName="RatingValue" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RatingId" ColumnName="RatingId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

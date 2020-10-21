@@ -15,7 +15,6 @@
     </Key>
     <Property Name="RatingId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="VenueId" Type="int" Nullable="false" />
     <Property Name="RatingValue" Type="decimal" Precision="2" Scale="1" Nullable="false" />
     <Property Name="RatingFeedback" Type="nvarchar" MaxLength="320" />
   </EntityType>
@@ -54,18 +53,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Rating__VenueId__403A8C7D">
-    <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
-    <End Role="Rating" Type="Self.Rating" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Venue">
-        <PropertyRef Name="VenueId" />
-      </Principal>
-      <Dependent Role="Rating">
-        <PropertyRef Name="VenueId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK__Workshop__VenueI__38996AB5">
     <End Role="Venue" Type="Self.Venue" Multiplicity="1" />
     <End Role="Workshop" Type="Self.Workshop" Multiplicity="*" />
@@ -86,10 +73,6 @@
     <AssociationSet Name="FK__Booking__Worksho__3C69FB99" Association="Self.FK__Booking__Worksho__3C69FB99">
       <End Role="Workshop" EntitySet="Workshop" />
       <End Role="Booking" EntitySet="Booking" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Rating__VenueId__403A8C7D" Association="Self.FK__Rating__VenueId__403A8C7D">
-      <End Role="Venue" EntitySet="Venue" />
-      <End Role="Rating" EntitySet="Rating" />
     </AssociationSet>
     <AssociationSet Name="FK__Workshop__VenueI__38996AB5" Association="Self.FK__Workshop__VenueI__38996AB5">
       <End Role="Venue" EntitySet="Venue" />

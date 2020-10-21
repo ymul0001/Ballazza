@@ -1,0 +1,64 @@
+﻿@model Ballazza.Models.Rating
+
+@{
+    ViewBag.Title = "Create";
+    Layout = null;
+}
+
+<!-- Latest compiled and minified CSS -->
+@Styles.Render("~/Content/css")
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+@Styles.Render("~/Content/Rating.css")
+@Styles.Render("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+@Styles.Render("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap")
+@Scripts.Render("~/bundles/jquery")
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal feedback-form">
+    <img src="~/Content/img/ballazza-logo.png" alt="ballazza" width="120" />
+    <h3 class="form-title">Please kindly rate our service before leaving the website</h3>
+    <div id="rateYo"></div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.HiddenFor(model => model.Id,  new { @class = "form-control", @Value = @ViewBag.id} )
+            @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.RatingValue, new { @class = "form-control rating-value", @type = "hidden", @Value=3 })
+            @Html.ValidationMessageFor(model => model.RatingValue, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.RatingFeedback, "Additional comments", htmlAttributes: new { @class = "control-label feedback-label" })
+        <div>
+            @Html.TextAreaFor(model => model.RatingFeedback, 10, 80, new { @class = "form-control rating-feedback", @placeholder = "write your additional comments.." })
+            @Html.ValidationMessageFor(model => model.RatingFeedback, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-default rate-button" />
+        <a href="/Home/Index" class="back-button">Back to the main menu</a>
+    </div>
+</div>
+}
+
+
+<!-- Latest compiled and minified JavaScript -->
+@section Scripts {
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
+@Scripts.Render("~/Scripts/Rating.js")
+
+
