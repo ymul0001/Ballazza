@@ -36,6 +36,40 @@ namespace Ballazza.Controllers
         [AllowAnonymous]
         public ActionResult GetWorkshopList() {
             var workshopsList = db.Workshops.Include(w => w.Venue).ToList();
+            if (User.Identity.IsAuthenticated)
+            {
+                var existedWorkshopsList = db.Workshops.Where(w => db.Bookings.Any(b => b.WorkshopId == w.WorkshopId));
+                if (existedWorkshopsList.Any())
+                {
+                    var nonExistedWorkshopsList = db.Workshops.Where(w => db.Bookings.Any(b => b.WorkshopId != w.WorkshopId));
+                    var disabledList = (from obj in existedWorkshopsList
+                                        select new
+                                        {
+                                            Id = 9999,
+                                            Name = obj.Venue.VenueName,
+                                            AgeGroup = obj.WorkshopAgeGroup,
+                                            StartDate = obj.WorkshopStartDate,
+                                            EndDate = obj.WorkshopEndDate,
+                                            Quota = obj.WorkshopQuota,
+                                        });
+                    var enabledList = (from obj in nonExistedWorkshopsList
+                                       select new
+                                       {
+                                           Id = obj.WorkshopId,
+                                           Name = obj.Venue.VenueName,
+                                           AgeGroup = obj.WorkshopAgeGroup,
+                                           StartDate = obj.WorkshopStartDate,
+                                           EndDate = obj.WorkshopEndDate,
+                                           Quota = obj.WorkshopQuota,
+                                       });
+                    return Json(
+                    new
+                    {
+                        data = disabledList.Concat(enabledList)
+                    }, JsonRequestBehavior.AllowGet); ;
+                }
+
+            }
             return Json(
                 new { 
                 data = (from obj in workshopsList select new { 

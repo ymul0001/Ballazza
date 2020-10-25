@@ -49,7 +49,7 @@ namespace Ballazza.Controllers
         */
 
         //GET: Bookings/GetBookingList
-        [Authorize]
+        [Authorize(Roles="Administrator,User")]
         public ActionResult GetBookingList()
         {
             var bookingList = db.Bookings.Include(w => w.Workshop);
@@ -119,7 +119,7 @@ namespace Ballazza.Controllers
         */
 
         // GET: Bookings/Delete/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, User")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -135,7 +135,7 @@ namespace Ballazza.Controllers
         }
 
         // POST: Bookings/Delete/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Administrator, User")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -143,7 +143,11 @@ namespace Ballazza.Controllers
             Booking booking = db.Bookings.Find(id);
             db.Bookings.Remove(booking);
             db.SaveChanges();
-            return RedirectToAction("AdminIndex");
+            if (User.IsInRole("Administrator"))
+            {
+                return RedirectToAction("AdminIndex");
+            }
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

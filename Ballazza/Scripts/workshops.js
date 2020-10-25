@@ -6,7 +6,7 @@
             "datatype": "JSON",
         },
         "columns": [
-            { "data": "Id" ,"autowidth": true},
+            /*{ "data": "Id" ,"autowidth": true},*/
             { "data": "Name", "autowidth": true },
             { "data": "AgeGroup", "autowidth": true },
             {
@@ -14,19 +14,10 @@
                 "render": function (jsonDate) {
                     var date = new Date(parseInt(jsonDate.substr(6)));
                     var month = date.getMonth() + 1;
-                    var day = date.getDay();
                     if (month < 10) {
-                        if (day < 10) {
-                            return "0" + day + "/" + "0" + month + "/" + date.getFullYear();
-                        }
-                        else {
-                            return day + "/" + "0" + month + "/" + date.getFullYear();
-                        }
+                        return date.getDate() + "/" + "0" + month + "/" + date.getFullYear();
                     }
-                    if (day < 10) {
-                        return "0" + day + "/" + month + "/" + date.getFullYear();
-                    }
-                    return day + "/" + month + "/" + date.getFullYear();
+                    return date.getDate() + "/" + month + "/" + date.getFullYear();
                 },
                 "autowidth": true
             },
@@ -35,25 +26,22 @@
                 "render": function (jsonDate) {
                     var date = new Date(parseInt(jsonDate.substr(6)));
                     var month = date.getMonth() + 1;
-                    var day = date.getDay();
                     if (month < 10) {
-                        if (day < 10) {
-                            return "0" + day + "/" + "0" + month + "/" + date.getFullYear();
-                        }
-                        else {
-                            return day + "/" + "0" + month + "/" + date.getFullYear();
-                        }
+                        return date.getDate() + "/" + "0" + month + "/" + date.getFullYear();
                     }
-                    if (day < 10) {
-                        return "0" + day + "/" + month + "/" + date.getFullYear();
-                    }
-                    return day + "/" + month + "/" + date.getFullYear();
+                    return date.getDate() + "/" + month + "/" + date.getFullYear();
                 },
                 "autowidth": true
             },
             { "data": "Quota", "autowidth": true },
             {
                 "render": function (data, type, row) {
+                    if (row.Id === 9999) {
+                        return `<a class="book-button" style="display:block; border-radius: 20px;min-width: 5vw !important;border: none;background-color: #b53636 !important; opacity: .5; color: #fff;min-height: 3vh !important;text-transform: uppercase;">Booked!</a>`
+                    }
+                    else if (row.Id === 999999) {
+                        return `<a class="book-button" style="display:block; border-radius: 20px;min-width: 5vw !important;border: none;background-color: #b53636 !important; opacity: .5; color: #fff;min-height: 3vh !important;text-transform: uppercase;">Clashed</a>`
+                    }
                     return `<a class="book-button" href="/Bookings/GetWorkshopDetails/?WorkshopId=${row.Id}" style="display:block; border-radius: 20px;min-width: 5vw !important;border: none;background-color: #b53636 !important;color: #fff;min-height: 3vh !important;text-transform: uppercase;">Book</a>`
                 },
                 "autowidth": true

@@ -33,6 +33,6 @@ select {
 
 @media (min-width:768px) and (max-width: 991px) {
     #content-wrapper {
-        margin-top: 19vh !important;
+        margin-top: 35vh !important;
     }
 }

@@ -6,18 +6,31 @@
 
 @Styles.Render("~/Content/DeleteConfirmed.css")
 
-<div class="confirmation-section">
-    <h3 class="confirmation-warning">Are you sure you want to permanently delete this item with the id @Html.DisplayFor(model => model.BookingId)?</h3>
-    <p>*please note that you cannot retrieve the data after it has been deleted*</p>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+    <div class="confirmation-section">
+        @if (User.IsInRole("Administrator"))
+        {
+            <h3 class="confirmation-warning">Are you sure you want to permanently delete this item with the id @Html.DisplayFor(model => model.BookingId)?</h3>
+        }
+        else { 
+            <h3 class="confirmation-warning">Are you sure you want to cancel the booking?</h3>
+        }
+        <p>*please note that you cannot retrieve the data after it has been deleted*</p>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-        <div class="confirmation-set form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-primary delete-button" />
-            <a href="/Bookings/AdminIndex" class="btn btn-primary back-button">Back</a>
-        </div>
-    }
-</div>
+            <div class="confirmation-set form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-primary delete-button" />
+                @if (User.IsInRole("Administrator"))
+                {
+                    <a href="~/Bookings/AdminIndex" class="btn btn-primary back-button">Back</a>
+                }
+                else
+                {
+                    <a href="~/Bookings" class="btn btn-primary back-button">Back</a>
+                }
+            </div>
+        }
+    </div>
 
 

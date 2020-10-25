@@ -36,7 +36,7 @@
             {
                 "render": function (data, type, row) {
                     return (`
-                               <div style="display:flex; justify-content:space-evenly;">
+                               <div>
                                    <a class="delete-button" href=/Bookings/Delete/${row.BookingId} style="display: block; border-radius: 10px; background-color: #C12626;color: white;padding-bottom:1vh; padding-top: 1vh; min-width: 60%; text-align: center; text-decoration: none; text-transform: uppercase;">Delete</a>
                                </div>
                            `)
