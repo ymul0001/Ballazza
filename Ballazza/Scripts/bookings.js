@@ -37,7 +37,7 @@
                 "render": function (data, type, row) {
                     return `
                               <div>
-                                 <a href="/Bookings/Delete/${row.BookingId}" class="book-button" style="border-radius: 20px;min-width: 5vw !important;border: none;background-color: #B86D00 !important;color: #fff;min-height: 3vh !important;">Cancel</a>
+                                 <a href="/Bookings/Delete/${row.BookingId}" class="book-button" style="display: block; text-align: center; padding-top: .3vh; border-radius: 20px;min-width: 5vw !important;border: none;background-color: #B86D00 !important;color: #fff;min-height: 3vh !important;">Cancel</a>
                               </div>     
                             `
                 },

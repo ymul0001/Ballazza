@@ -35,14 +35,17 @@ namespace Ballazza.Controllers
         //GET: Workshops/GetWorkshopList
         [AllowAnonymous]
         public ActionResult GetWorkshopList() {
-            var workshopsList = db.Workshops.Include(w => w.Venue).ToList();
+            var workshopsList = db.Workshops.Include(w => w.Venue);
             if (User.Identity.IsAuthenticated)
             {
                 var existedWorkshopsList = db.Workshops.Where(w => db.Bookings.Any(b => b.WorkshopId == w.WorkshopId));
                 if (existedWorkshopsList.Any())
                 {
-                    var nonExistedWorkshopsList = db.Workshops.Where(w => db.Bookings.Any(b => b.WorkshopId != w.WorkshopId));
-                    var disabledList = (from obj in existedWorkshopsList
+                    //var nonExistedWorkshopsList = db.Workshops.Where(w => existedWorkshopsList.Any(b => b.WorkshopId != w.WorkshopId));
+                    //var nonExistedWorkshopsList = workshopsList.Except(existedWorkshopsList);
+                    var dateClashWorkshopsList = db.Workshops.Where(w => db.Bookings.Any(b => b.WorkshopId != w.WorkshopId && b.Workshop.WorkshopStartDate == w.WorkshopStartDate));
+                    var dateFitWorkshopsList = workshopsList.Except(existedWorkshopsList).Except(dateClashWorkshopsList);
+                    var bookedList = (from obj in existedWorkshopsList
                                         select new
                                         {
                                             Id = 9999,
@@ -52,7 +55,7 @@ namespace Ballazza.Controllers
                                             EndDate = obj.WorkshopEndDate,
                                             Quota = obj.WorkshopQuota,
                                         });
-                    var enabledList = (from obj in nonExistedWorkshopsList
+                    var fitList = (from obj in dateFitWorkshopsList
                                        select new
                                        {
                                            Id = obj.WorkshopId,
@@ -62,11 +65,22 @@ namespace Ballazza.Controllers
                                            EndDate = obj.WorkshopEndDate,
                                            Quota = obj.WorkshopQuota,
                                        });
+
+                    var clashList = (from obj in dateClashWorkshopsList
+                                     select new
+                                     {
+                                         Id = 999999,
+                                         Name = obj.Venue.VenueName,
+                                         AgeGroup = obj.WorkshopAgeGroup,
+                                         StartDate = obj.WorkshopStartDate,
+                                         EndDate = obj.WorkshopEndDate,
+                                         Quota = obj.WorkshopQuota,
+                                     });
                     return Json(
                     new
                     {
-                        data = disabledList.Concat(enabledList)
-                    }, JsonRequestBehavior.AllowGet); ;
+                        data = bookedList.Concat(clashList).Concat(fitList)
+                    }, JsonRequestBehavior.AllowGet) ; ;
                 }
 
             }
