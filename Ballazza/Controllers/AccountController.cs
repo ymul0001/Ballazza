@@ -83,18 +83,18 @@ namespace Ballazza.Controllers
             // var email = await UserManager.FindByEmail(model.Email);
 
             /*
-            if (UserManager.FindByEmail(model.Email) == null) { 
-                ModelState.AddModelError()
+            if (UserManager.FindByEmail(model.Email) == null) {
+                ModelState.AddModelError("", "Invalid login attempt.");
             };
             */
 
-            //check if email is confirmed
-            var userid = UserManager.FindByEmail(model.Email).Id;
-            if (!UserManager.IsEmailConfirmed(userid))
-            {
-                ModelState.AddModelError("", "Email is not confirmed yet");
+            var userid = UserManager.FindByEmail(model.Email)?.Id;
+            if (string.IsNullOrEmpty(userid) || !UserManager.IsEmailConfirmed(userid))
+{
+                ModelState.AddModelError("", "Invalid login attempt");
                 return View(model);
             }
+
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
