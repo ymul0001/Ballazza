@@ -1,0 +1,68 @@
+﻿body {
+    background-color: #222436;
+}
+
+.users-info {
+    margin-top: 4vh;
+}
+
+.info-title {
+    color: #731818;
+    font-size: 2.5rem;
+    margin-top: 6vh !important;
+}
+
+.info-value {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.online-info {
+    background: white;
+    border-radius: 10px;
+    height: 25vh;
+    text-align: center;
+}
+
+.rating-info {
+    background: white;
+    border-radius: 10px;
+    height: 25vh;
+    text-align: center;
+}
+
+.chart {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 15px;
+    margin-top: 30vh !important;
+    margin-bottom: 5vh !important;
+}
+
+#chart-year {
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    position: relative;
+    border-radius: 5px;
+    width: 100px;
+    overflow: hidden;
+    box-shadow: inset 0 -2px 5px rgba(255, 255, 255, 0.4);
+    height: 4vh;
+    background-color: #b0afae;
+}
+.jumbotron-subs {
+    margin-left: 2rem;
+    margin-top: 20vh;
+    min-width: 20vw !important;
+    height: 6vh !important;
+    background-color: #C72B2B !important;
+    border: none;
+    transition: all .2s;
+    font-size: 1.4rem;
+}
+
+    /*pseudo-selector and animation*/
+    .jumbotron-subs:hover {
+        background-color: #a32424 !important;
+        transform: scale(.98)
+    }

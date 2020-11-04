@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@Styles.Render("~/Content/Home.css")
+@Styles.Render("~/Content/AdminHome.css")
 
 @if (ViewBag.Message == "Sent")
 {
@@ -14,21 +14,35 @@ else
     <input type="hidden" id="viewbag" value="" />
 }
 
-<div class="jumbotron">
-    <h1 class="jumbotron-title">Ballazza Admin</h1>
-    <p class="lead jumbotron-lead">Welcome to the Ballazza Admin Panel. Please select relevant menus from the navigation bar above.</p>
-    <button class="jumbotron-subs">Go to live chat</button>
-</div>
+<button class="jumbotron-subs">Go to live chat</button>
+<div class="users-info col-md-12">
+    <div class="online-info col-md-4">
+        <h3 class="info-title">Total Workshops</h3>
+        <p class="info-value">@ViewBag.TotalWorkshops</p>
+    </div>
+    <div class="rating-info col-md-4 col-md-offset-1">
+        <h3 class="info-title">Total rating</h3>
+        <p class="info-value">@ViewBag.TotalRating/5</p>
+    </div>
+    <div>
+        <div class="chart">
+            <select id="chart-year">
+                <option value="2019">2019</option>
+                <option value="2020" selected>2020</option>
+                <option value="2021">2021</option>
+            </select>
+            <canvas id="bar-chart"></canvas>
+        </div>
 
-@Scripts.Render("~/Scripts/AdminHome.js")
-
-<script>
-    $(document).ready(function () {
-        var viewbag = $("#viewbag").val();
-        console.log(viewbag);
-        if (viewbag == 'Sent') {
-            $.notify("Successfully sent advertisements", "success");
-        }
-    });
-</script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+        @Scripts.Render("~/Scripts/AdminHome.js")
+        <script>
+            $(document).ready(function () {
+                var viewbag = $("#viewbag").val();
+                console.log(viewbag);
+                if (viewbag == 'Sent') {
+                    $.notify("Successfully sent advertisements", "success");
+                }
+            });
+        </script>
 

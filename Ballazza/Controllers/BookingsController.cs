@@ -74,6 +74,46 @@ namespace Ballazza.Controllers
                 }, JsonRequestBehavior.AllowGet); ;
         }
 
+        //GET: Bookings/GetMonthlyBookingReport
+        [Authorize(Roles = "Administrator")]
+        public ActionResult GetMonthlyBookingReport() {
+            var bookingsByMonth = db.Bookings.GroupBy(b => b.BookingDate.Month).Select(y => new { 
+                    Month = y.Key,
+                    NumberOfBookings = y.Count()
+            });
+
+            return Json(
+                    new
+                    {
+                        data = (from obj in bookingsByMonth.ToList()
+                                select new
+                                {
+                                    Month = obj.Month,
+                                    NumberOfBookings = obj.NumberOfBookings
+                                })
+                    }, JsonRequestBehavior.AllowGet); ; 
+        }
+
+        [Authorize(Roles = "Administrator")]
+        public ActionResult GetMonthlyBookingReportByYear(string year)
+        {
+            var bookingYear = Int32.Parse(year);
+            var bookingsByMonth = db.Bookings.Where(data => data.BookingDate.Year == bookingYear ).GroupBy(b => b.BookingDate.Month).Select(y => new {
+                Month = y.Key,
+                NumberOfBookings = y.Count()
+            });
+            return Json(
+                    new
+                    {
+                        data = (from obj in bookingsByMonth.ToList()
+                                select new
+                                {
+                                    Month = obj.Month,
+                                    NumberOfBookings = obj.NumberOfBookings
+                                })
+                    }, JsonRequestBehavior.AllowGet); ;
+        }
+
         // GET: Bookings/GetWorkshopDetails/1001
         [Authorize(Roles = "User")]
         public ActionResult GetWorkshopDetails(int? WorkshopId)
