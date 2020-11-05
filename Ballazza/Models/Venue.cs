@@ -11,7 +11,8 @@ namespace Ballazza.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Venue
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,11 +22,22 @@ namespace Ballazza.Models
         }
     
         public int VenueId { get; set; }
+        [Required(ErrorMessage = "Venue name cannot be empty")]
+        [DataType(DataType.Text)]
         public string VenueName { get; set; }
+        [Required(ErrorMessage = "Venue street cannot be empty")]
+        [DataType(DataType.Text)]
         public string VenueStreet { get; set; }
+        [Required(ErrorMessage = "Suburb cannot be empty")]
+        [DataType(DataType.Text)]
         public string VenueSuburb { get; set; }
+        [Required(ErrorMessage = "State cannot be empty")]
+        [DataType(DataType.Text)]
+        [StringLength(3, MinimumLength =3)]
         public string VenueState { get; set; }
+        [Required(ErrorMessage = "Postcode cannot be empty")]
         public int VenuePostcode { get; set; }
+        [Required(ErrorMessage = "Phone number cannot be empty")]
         public string VenuePhoneno { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

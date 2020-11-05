@@ -11,12 +11,17 @@ namespace Ballazza.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Rating
     {
         public int RatingId { get; set; }
         public string Id { get; set; }
+        [Required(ErrorMessage = "Rating value cannot be empty")]
+        [Range(0,5, ErrorMessage = "Please rate between 0 and 5")]
         public decimal RatingValue { get; set; }
+
+        [DataType(DataType.Text)]
         public string RatingFeedback { get; set; }
     }
 }

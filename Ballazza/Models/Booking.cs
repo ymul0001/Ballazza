@@ -11,14 +11,18 @@ namespace Ballazza.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Booking
     {
+      
         public int BookingId { get; set; }
         public string Id { get; set; }
         public int WorkshopId { get; set; }
+        [Required(ErrorMessage = "Booking date cannot be empty")]
+        [DataType(DataType.DateTime)]
         public System.DateTime BookingDate { get; set; }
-    
+        
         public virtual Workshop Workshop { get; set; }
     }
 }

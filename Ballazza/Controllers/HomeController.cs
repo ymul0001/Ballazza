@@ -58,6 +58,11 @@ namespace Ballazza.Controllers
             {
                 ViewBag.UserInfo = TempData["userInfo"].ToString();
             }
+            else {
+                if (User.Identity.IsAuthenticated) {
+                    ViewBag.DefaultUserInfo = "Hello User!";
+                }
+            }
             return View();
         }
     }

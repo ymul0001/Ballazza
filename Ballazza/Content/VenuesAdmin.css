@@ -26,6 +26,20 @@ select {
     margin-top: 2vh !important;
 }
 
+.notes {
+    background-color: #fff;
+    height: 15vh;
+    padding-top: 3vh;
+    margin-bottom: 3vh;
+    padding-left: 2%;
+    padding-right: 2%;
+    border-radius: 10px;
+}
+
+.notes-title {
+    color: #803120;
+}
+
 #venue-table_info {
     color: #fff !important;
 }
@@ -58,5 +72,9 @@ select {
 @media (min-width:768px) and (max-width: 991px) {
     #content-wrapper {
         margin-top: 19vh !important;
+    }
+
+    .notes {
+        margin-top: 40vh !important
     }
 }

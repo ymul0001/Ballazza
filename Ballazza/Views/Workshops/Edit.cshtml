@@ -17,7 +17,7 @@
         @Html.HiddenFor(model => model.WorkshopId)
         <div class="fields">
             <div class="form-group">
-                @Html.LabelFor(model => model.WorkshopAgeGroup, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.WorkshopAgeGroup, "age", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.WorkshopAgeGroup, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.WorkshopAgeGroup, "", new { @class = "text-danger" })
@@ -25,7 +25,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.WorkshopStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.WorkshopStartDate, "start", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.WorkshopStartDate, new { htmlAttributes = new { @class = "form-control datepicker-1" } })
                     @Html.ValidationMessageFor(model => model.WorkshopStartDate, "", new { @class = "text-danger" })
@@ -33,7 +33,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.WorkshopEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.WorkshopEndDate, "end", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.WorkshopEndDate, new { htmlAttributes = new { @class = "form-control datepicker-2" } })
                     @Html.ValidationMessageFor(model => model.WorkshopEndDate, "", new { @class = "text-danger" })
@@ -41,7 +41,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.WorkshopQuota, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.WorkshopQuota, "quota", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.WorkshopQuota, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.WorkshopQuota, "", new { @class = "text-danger" })
@@ -49,7 +49,7 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.VenueId, "Venue", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.VenueId, "venue", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("VenueId", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.VenueId, "", new { @class = "text-danger" })

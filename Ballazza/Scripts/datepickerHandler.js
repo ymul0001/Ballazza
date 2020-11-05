@@ -27,10 +27,7 @@ $(function () {
     $(".datepicker-2").datepicker({
         format: "dd/mm/yyyy",
         autoclose: true,
-    }).on('changeDate', function (selected) {
-        var maxDate = new Date(selected.date.valueOf());
-        $('.datepicker-1').datepicker('setEndDate', maxDate);
-    });
+    })
 })
 
 

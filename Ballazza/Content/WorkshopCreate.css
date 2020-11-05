@@ -8,13 +8,14 @@
     padding-top: 5vh !important;
     /*color: #fff !important;*/
     background-color: #FFFFFF !important;
-    height: 72vh !important;
-    width: 70% !important;
+    height: 80vh !important;
+    width: 60% !important;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     padding-left: .4rem;
     border-radius: 20px;
+    margin-bottom: 5vh;
 }
 
 .fields {

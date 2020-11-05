@@ -6,41 +6,45 @@
 
 @Styles.Render("~/Content/VenuesAdmin.css")
 
-<div id="content-wrapper">
-    <button class="create-button">
-        create item
-    </button>
-    <table id="venue-table" class="ui celled table" style="width:100%">
-        <thead>
-            <tr>
-                <th>
-                    Venue id
-                </th>
-                <th>
-                    Venue name
-                </th>
-                <th>
-                    street
-                </th>
-                <th>
-                    suburb
-                </th>
-                <th>
-                    state
-                </th>
-                <th>
-                    postcode
-                </th>
-                <th>
-                    phone
-                </th>
-                <th>
-                    Action
-                </th>
-            </tr>
-        </thead>
-    </table>
-</div>
+    <div id="content-wrapper">
+        <div class="notes">
+            <h3 class="notes-title">Important notes:</h3>
+            <p>Please delete relevant workshops first before deleting venues!</p>
+        </div>
+        <button class="create-button">
+            create item
+        </button>
+        <table id="venue-table" class="ui celled table" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        Venue id
+                    </th>
+                    <th>
+                        Venue name
+                    </th>
+                    <th>
+                        street
+                    </th>
+                    <th>
+                        suburb
+                    </th>
+                    <th>
+                        state
+                    </th>
+                    <th>
+                        postcode
+                    </th>
+                    <th>
+                        phone
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
 
 @Styles.Render("//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css")
 @Scripts.Render("//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js")

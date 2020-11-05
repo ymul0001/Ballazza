@@ -6,7 +6,6 @@
             "datatype": "JSON",
         },
         "columns": [
-            /*{ "data": "Id" ,"autowidth": true},*/
             { "data": "Name", "autowidth": true },
             { "data": "AgeGroup", "autowidth": true },
             {

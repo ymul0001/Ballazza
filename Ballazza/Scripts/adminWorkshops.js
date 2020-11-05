@@ -67,8 +67,9 @@
     })
 });
 
-$(".create-button").click(function () {
-    window.location.href = "/Workshops/Create";
-});
+document.querySelector('.create-button').addEventListener('click', () => {
+    window.location.href = "Create"
+})
 
-$
+
+

@@ -93,7 +93,7 @@ namespace Ballazza.Controllers
             {
                 db.Venues.Add(venue);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("AdminIndex");
             }
 
             return View(venue);

@@ -8,15 +8,15 @@ namespace Ballazza.Models
 {
     public class MailModel
     {
-        [Required(ErrorMessage = "this column cannot be empty")]
+        [Required(ErrorMessage = "Sender cannot be empty")]
         [DataType(DataType.Text)]
         public string To { get; set; }
         
-        [Required(ErrorMessage = "this column cannot be empty")]
+        [Required(ErrorMessage = "Receiver cannot be empty")]
         [DataType(DataType.Text)]
         public string Subject { get; set; }
         
-        [Required(ErrorMessage = "this column cannot be empty")]
+        [Required(ErrorMessage = "Body cannot be empty")]
         [DataType(DataType.Text)]
         public string Body { get; set; }
     }

@@ -103,7 +103,7 @@ namespace Ballazza.Controllers
         public ActionResult Create()
         {
             ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "VenueName");
-            return RedirectToAction("/Workshops/AdminIndex");
+            return View();
         }
 
 
@@ -189,7 +189,7 @@ namespace Ballazza.Controllers
             Workshop workshop = db.Workshops.Find(id);
             db.Workshops.Remove(workshop);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("AdminIndex");
         }
 
         protected override void Dispose(bool disposing)

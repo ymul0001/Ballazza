@@ -11,7 +11,8 @@ namespace Ballazza.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Workshop
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,20 @@ namespace Ballazza.Models
         }
     
         public int WorkshopId { get; set; }
+
+        [Required(ErrorMessage = "Age group cannot be empty")]
+        [DataType(DataType.Text)]
+        [RegularExpression("Kids|Teens|Pro", ErrorMessage = "Only Kids,Teens,Pro allowed")]
         public string WorkshopAgeGroup { get; set; }
+
+        [Required(ErrorMessage = "Start date cannot be empty")]
+        [DataType(DataType.DateTime)]
         public System.DateTime WorkshopStartDate { get; set; }
+        [Required(ErrorMessage = "End date cannot be empty")]
+        [DataType(DataType.DateTime)]
         public System.DateTime WorkshopEndDate { get; set; }
+        [Required(ErrorMessage = "Quota cannot be empty")]
+        [Range(0,80, ErrorMessage = "Cannot exceed 80 for the quota")]
         public int WorkshopQuota { get; set; }
         public int VenueId { get; set; }
     
