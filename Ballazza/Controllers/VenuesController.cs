@@ -15,19 +15,23 @@ namespace Ballazza.Controllers
         private BallazzaEntities db = new BallazzaEntities();
 
         // GET: Venues
-
+        // Display the venues page
         [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Venues.ToList());
         }
 
+        // GET: Venues/AdminIndex
+        // Display the venues page for the admin
         [Authorize(Roles = "Administrator")]
         public ActionResult AdminIndex()
         {
             return View();
         }
 
+        // GET: Venues/GetVenuesList
+        // Get list of venues to be displayed in the page
         [AllowAnonymous]
         public ActionResult GetVenuesList()
         {
@@ -45,6 +49,9 @@ namespace Ballazza.Controllers
                 }, JsonRequestBehavior.AllowGet); ;
         }
 
+
+        // GET: Venues/GetVenuesListAdmin
+        // Get list of venues to be displayed in the page specifically for admin
         [Authorize(Roles = "Administrator")]
         public ActionResult GetVenuesListAdmin()
         {
@@ -67,33 +74,16 @@ namespace Ballazza.Controllers
                 }, JsonRequestBehavior.AllowGet); ;
         }
 
-        /*
-        // GET: Venues/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Venue venue = db.Venues.Find(id);
-            if (venue == null)
-            {
-                return HttpNotFound();
-            }
-            return View(venue);
-        }
-        */
-
-        [Authorize(Roles = "Administrator")]
         // GET: Venues/Create
+        // Display the venue's creation page
+        [Authorize(Roles = "Administrator")]
         public ActionResult Create()
         {
             return View();
         }
 
         // POST: Venues/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Create a venue details
         [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -111,6 +101,7 @@ namespace Ballazza.Controllers
 
 
         // GET: Venues/Edit/5
+        // Get the venue edit's page
         [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int? id)
         {
@@ -127,8 +118,7 @@ namespace Ballazza.Controllers
         }
 
         // POST: Venues/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Update the venue data inside the database
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator")]
@@ -144,6 +134,7 @@ namespace Ballazza.Controllers
         }
 
         // GET: Venues/Delete/5
+        // Get specific venue details before deleting the data
         [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
@@ -160,6 +151,7 @@ namespace Ballazza.Controllers
         }
 
         // POST: Venues/Delete/5
+        // Delete specific venue details from the database
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Administrator")]

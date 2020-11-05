@@ -17,6 +17,7 @@ namespace Ballazza.Controllers
         private BallazzaEntities db = new BallazzaEntities();
 
         // GET: Bookings
+        //Display the Booking's index view
         [Authorize(Roles = "User")]
         public ActionResult Index()
         {
@@ -24,6 +25,7 @@ namespace Ballazza.Controllers
             return View(bookings.ToList());
         }
 
+        //GET: /Bookings/AdminIndex
         //Return the Booking's admin index view
         [Authorize(Roles = "Administrator")]
         public ActionResult AdminIndex()
@@ -31,24 +33,9 @@ namespace Ballazza.Controllers
             return View();
         }
 
-       /*
-        // GET: Bookings/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Booking booking = db.Bookings.Find(id);
-            if (booking == null)
-            {
-                return HttpNotFound();
-            }
-            return View(booking);
-        }
-        */
 
         //GET: Bookings/GetBookingList
+        //Get list of bookings to be displayed
         [Authorize(Roles="Administrator,User")]
         public ActionResult GetBookingList()
         {
@@ -75,6 +62,7 @@ namespace Ballazza.Controllers
         }
 
         //GET: Bookings/GetMonthlyBookingReport
+        //Get data for the annual booking report
         [Authorize(Roles = "Administrator")]
         public ActionResult GetMonthlyBookingReport() {
             var bookingsByMonth = db.Bookings.GroupBy(b => b.BookingDate.Month).Select(y => new { 
@@ -94,6 +82,8 @@ namespace Ballazza.Controllers
                     }, JsonRequestBehavior.AllowGet); ; 
         }
 
+        //i.e. GET: /Bookings/GetMonthlyBookingReportByYear?year=2018
+        //Get data for the annual booking report by each year
         [Authorize(Roles = "Administrator")]
         public ActionResult GetMonthlyBookingReportByYear(string year)
         {
@@ -115,6 +105,7 @@ namespace Ballazza.Controllers
         }
 
         // GET: Bookings/GetWorkshopDetails/1001
+        //Return details of a particular workshop
         [Authorize(Roles = "User")]
         public ActionResult GetWorkshopDetails(int? WorkshopId)
         {
@@ -128,13 +119,13 @@ namespace Ballazza.Controllers
                 };
                 return View(model);
             }
-            //ViewBag.VenueId = new SelectList(db.Venues, "VenueId", "VenueName");
             else { 
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
         }
 
         // POST: Bookings/Create
+        // Create a booking inside the database
         [Authorize(Roles = "User")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -149,16 +140,9 @@ namespace Ballazza.Controllers
             return RedirectToAction("Index");
         }
 
-        /*
-        [HttpPost]
-        //[ValidateAntiForgeryToken]
-        public ActionResult Create(int Id)
-        {
-            return RedirectToAction("Workshops/Index");
-        }
-        */
 
         // GET: Bookings/Delete/5
+        // Get a particular booking details that a user wants to delete
         [Authorize(Roles = "Administrator, User")]
         public ActionResult Delete(int? id)
         {
@@ -175,6 +159,7 @@ namespace Ballazza.Controllers
         }
 
         // POST: Bookings/Delete/5
+        // Delete a particular booking which match a particular booking id
         [Authorize(Roles = "Administrator, User")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

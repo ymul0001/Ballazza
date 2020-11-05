@@ -59,8 +59,9 @@ namespace Ballazza.Controllers
             return View();
         }
 
-        //
+        
         // GET: /Account/Login
+        //Display the login page
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
@@ -68,8 +69,9 @@ namespace Ballazza.Controllers
             return View();
         }
 
-        //
+        
         // POST: /Account/Login
+        //Login to the system
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -79,14 +81,6 @@ namespace Ballazza.Controllers
             {
                 return View(model);
             }
-
-            // var email = await UserManager.FindByEmail(model.Email);
-
-            /*
-            if (UserManager.FindByEmail(model.Email) == null) {
-                ModelState.AddModelError("", "Invalid login attempt.");
-            };
-            */
 
             var userid = UserManager.FindByEmail(model.Email)?.Id;
             if (string.IsNullOrEmpty(userid) || !UserManager.IsEmailConfirmed(userid))
@@ -121,59 +115,18 @@ namespace Ballazza.Controllers
             }
         }
 
-        //
-        // GET: /Account/VerifyCode
-        [AllowAnonymous]
-        public async Task<ActionResult> VerifyCode(string provider, string returnUrl, bool rememberMe)
-        {
-            // Require that the user has already logged in via username/password or external login
-            if (!await SignInManager.HasBeenVerifiedAsync())
-            {
-                return View("Error");
-            }
-            return View(new VerifyCodeViewModel { Provider = provider, ReturnUrl = returnUrl, RememberMe = rememberMe });
-        }
 
-        //
-        // POST: /Account/VerifyCode
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> VerifyCode(VerifyCodeViewModel model)
-        {
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-
-            // The following code protects for brute force attacks against the two factor codes. 
-            // If a user enters incorrect codes for a specified amount of time then the user account 
-            // will be locked out for a specified amount of time. 
-            // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(model.ReturnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid code.");
-                    return View(model);
-            }
-        }
-
-        //
         // GET: /Account/Register
+        //Display the register page
         [AllowAnonymous]
         public ActionResult Register()
         {
             return View();
         }
 
-        //
+
         // POST: /Account/Register
+        //Register for an account
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -201,8 +154,9 @@ namespace Ballazza.Controllers
             return View(model);
         }
 
-        //
+        
         // GET: /Account/ConfirmEmail
+        //Allow the user to confirm the account registration
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
@@ -216,6 +170,7 @@ namespace Ballazza.Controllers
 
         //
         // GET: /Account/ForgotPassword
+        //Display the forgotpassword page
         [AllowAnonymous]
         public ActionResult ForgotPassword()
         {
@@ -224,6 +179,7 @@ namespace Ballazza.Controllers
 
         //
         // POST: /Account/ForgotPassword
+        //Allow the user to change their password to a new one
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -238,8 +194,7 @@ namespace Ballazza.Controllers
                     return View("ForgotPasswordConfirmation");
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
+                // Send a forgot email password with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                 await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
@@ -250,8 +205,8 @@ namespace Ballazza.Controllers
             return View(model);
         }
 
-        //
         // GET: /Account/ForgotPasswordConfirmation
+        //Display the the forgot passowrd's page
         [AllowAnonymous]
         public ActionResult ForgotPasswordConfirmation()
         {
@@ -260,6 +215,7 @@ namespace Ballazza.Controllers
 
         //
         // GET: /Account/ResetPassword
+        //Display the reset password's page after users click on the link in the email
         [AllowAnonymous]
         public ActionResult ResetPassword(string code)
         {
@@ -268,6 +224,7 @@ namespace Ballazza.Controllers
 
         //
         // POST: /Account/ResetPassword
+        //Enable the user to reset their passowrd
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -346,7 +303,7 @@ namespace Ballazza.Controllers
             return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
         }
 
-        //
+        
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
@@ -376,7 +333,7 @@ namespace Ballazza.Controllers
             }
         }
 
-        //
+        
         // POST: /Account/ExternalLoginConfirmation
         [HttpPost]
         [AllowAnonymous]
@@ -415,15 +372,17 @@ namespace Ballazza.Controllers
             return View(model);
         }
 
+        //POST /Account/AdminLogOff
+        //Allowing the administrator to log off from the system
         [HttpPost]
         public ActionResult AdminLogOff() {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
 
+        //Allowing the user to log off from the system and redirect them to the rating page
         public ActionResult LogOff()
         {
-            /*AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);*/
             return RedirectToAction("Create", "Ratings");
         }
 

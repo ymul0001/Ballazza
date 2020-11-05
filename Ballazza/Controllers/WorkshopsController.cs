@@ -16,7 +16,7 @@ namespace Ballazza.Controllers
     {
         private BallazzaEntities db = new BallazzaEntities();
 
-
+        //GET: /Workshops/Index
         //Return the Workshop's index view
         [AllowAnonymous]
         public ActionResult Index()
@@ -24,6 +24,7 @@ namespace Ballazza.Controllers
             return View();
         }
 
+        //GET: /Workshops/AdminIndex
         //Return the Workshop's admin index view
         [Authorize(Roles = "Administrator")]
         public ActionResult AdminIndex()
@@ -33,17 +34,17 @@ namespace Ballazza.Controllers
 
 
         //GET: Workshops/GetWorkshopList
+        //get the list of workshops to be displayed in the workshop page 
         [AllowAnonymous]
         public ActionResult GetWorkshopList() {
             var workshopsList = db.Workshops.Include(w => w.Venue);
             if (User.Identity.IsAuthenticated)
             {
-                var existedWorkshopsList = db.Workshops.Where(w => db.Bookings.Any(b => b.WorkshopId == w.WorkshopId));
+                var currentUser = User.Identity.GetUserId();
+                var existedWorkshopsList = db.Workshops.Where(w => db.Bookings.Where(data => data.Id == currentUser).Any(b => b.WorkshopId == w.WorkshopId));
                 if (existedWorkshopsList.Any())
                 {
-                    //var nonExistedWorkshopsList = db.Workshops.Where(w => existedWorkshopsList.Any(b => b.WorkshopId != w.WorkshopId));
-                    //var nonExistedWorkshopsList = workshopsList.Except(existedWorkshopsList);
-                    var dateClashWorkshopsList = db.Workshops.Where(w => db.Bookings.Any(b => b.WorkshopId != w.WorkshopId && b.Workshop.WorkshopStartDate == w.WorkshopStartDate));
+                    var dateClashWorkshopsList = db.Workshops.Where(w => db.Bookings.Where(data => data.Id == currentUser).Any(b => b.WorkshopId != w.WorkshopId && b.Workshop.WorkshopStartDate == w.WorkshopStartDate));
                     var dateFitWorkshopsList = workshopsList.Except(existedWorkshopsList).Except(dateClashWorkshopsList);
                     var bookedList = (from obj in existedWorkshopsList
                                         select new
@@ -97,24 +98,6 @@ namespace Ballazza.Controllers
             }, JsonRequestBehavior.AllowGet);;
         }
 
-        /*
-        // GET: Workshops/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Workshop workshop = db.Workshops.Find(id);
-            if (workshop == null)
-            {
-                return HttpNotFound();
-            }
-            return View(workshop);
-        }
-        */
-
-
         // GET: Workshops/Create
         [Authorize(Roles = "Administrator")]
         public ActionResult Create()
@@ -125,8 +108,7 @@ namespace Ballazza.Controllers
 
 
         // POST: Workshops/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Create a workshop data
         [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -145,6 +127,7 @@ namespace Ballazza.Controllers
 
 
         // GET: Workshops/Edit/5
+        // Get details of a workshop data that is insisted to be updated
         [Authorize(Roles = "Administrator")]
         public ActionResult Edit(int? id)
         {
@@ -163,8 +146,7 @@ namespace Ballazza.Controllers
 
 
         // POST: Workshops/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // Update the details for the workshop
         [Authorize(Roles = "Administrator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -181,7 +163,7 @@ namespace Ballazza.Controllers
         }
 
         // GET: Workshops/Delete/5
-
+        // Get details of a workshop to be deleted
         [Authorize(Roles = "Administrator")]
         public ActionResult Delete(int? id)
         {
@@ -198,7 +180,7 @@ namespace Ballazza.Controllers
         }
 
         // POST: Workshops/Delete/5
-
+        //Delete a workshop
         [Authorize(Roles = "Administrator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

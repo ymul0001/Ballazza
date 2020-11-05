@@ -20,19 +20,15 @@ namespace Ballazza.Controllers
             Credentials = new System.Net.NetworkCredential("omhaohao@gmail.com", "3qtngHSa"),
             EnableSsl = true
         };
-        //Send notification email for successful bookings
-        /*
-        public void AssignSmtpDetails() {
-            
-           
-        }
-        */
+        
+        //POST: /Mail/SendBookingNotificationEmail
+        //send notification emails to the customers if they have successfully booked a workshop
         [HttpPost]
         public void SendBookingNotificationEmail(string ReceiverEmail, int WorkshopId, System.DateTime BookingTime)
         {
             try {              
                 MailMessage email = new MailMessage();
-                email.From = new MailAddress("albertusyonas15@gmail.com");
+                email.From = new MailAddress("omhaohao@gmail.com");
                 email.To.Add(ReceiverEmail);
                 email.Subject = "#Workshop id: " + WorkshopId + " Booking confirmation";
                 var body = "<p>Dear customer {0}:</p><p>This email is to confirm that you have booked into our workshops on {1}</p><p>Please contact our customer support if you have further questions</p><br/><br/><p>Regards,</p><p>Ballazza Team</p>";
@@ -42,15 +38,19 @@ namespace Ballazza.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;//throw the exception
+                throw ex;
             };
         }
 
+        //return the Advertisement's email page
+        //GET: /Mail/Index
         [Authorize(Roles ="Administrator")]
         public ActionResult Index() {
             return View();
         }
 
+        //Send bulk advertisements emails
+        //POST: /Mail/SendBulkEmail
         [HttpPost]
         [Authorize(Roles = "Administrator")]
         public ActionResult SendBulkEmail(Ballazza.Models.MailModel objModelMail, HttpPostedFileBase fileUploader)
@@ -59,15 +59,6 @@ namespace Ballazza.Controllers
             if (ModelState.IsValid)
             {
                 string from = "omhaohao@gmail.com";
-                /*
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.EnableSsl = true;
-                    NetworkCredential networkCredential = new NetworkCredential(from, "3qtngHSa");
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = networkCredential;
-                    smtp.Port = 587;
-                */
                 string[] emails = objModelMail.To.Split(';');
                 foreach (var email in emails)
                 {

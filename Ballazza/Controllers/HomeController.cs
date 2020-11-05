@@ -13,6 +13,9 @@ namespace Ballazza.Controllers
     {
         private BallazzaEntities db = new BallazzaEntities();
 
+
+        //GET: /Home/Index
+        //Display the administrator's home page
         [Authorize(Roles = "Administrator")]
         public ActionResult AdminIndex() {
             var ratings = Math.Floor(db.Ratings.Average(r => r.RatingValue) * 100) / 100;
@@ -22,6 +25,10 @@ namespace Ballazza.Controllers
             ViewBag.TotalWorkshops = workshops;
             return View();
         }
+
+
+        //GET: /Home/Chat
+        //Display the chat page
 
         [AllowAnonymous]
         public ActionResult Chat()
@@ -41,28 +48,16 @@ namespace Ballazza.Controllers
             return View();
         }
 
+
+        //GET: /Home/Index
+        //Display the user's home page
         [AllowAnonymous]
         public ActionResult Index()
         {
-            if (TempData["userInfo"] != null) { 
-                ViewBag.UserInfo= TempData["userInfo"].ToString();
+            if (TempData["userInfo"] != null)
+            {
+                ViewBag.UserInfo = TempData["userInfo"].ToString();
             }
-            return View();
-        }
-
-        [AllowAnonymous]
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        [AllowAnonymous]
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }
