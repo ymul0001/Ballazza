@@ -14,19 +14,10 @@
                 "render": function (jsonDate) {
                     var date = new Date(parseInt(jsonDate.substr(6)));
                     var month = date.getMonth() + 1;
-                    var day = date.getDay();
                     if (month < 10) {
-                        if (day < 10) {
-                            return "0" + day + "/" + "0" + month + "/" + date.getFullYear();
-                        }
-                        else {
-                            return day + "/" + "0" + month + "/" + date.getFullYear();
-                        }
+                        return date.getDate() + "/" + "0" + month + "/" + date.getFullYear();
                     }
-                    if (day < 10) {
-                        return "0" + day + "/" + month + "/" + date.getFullYear();
-                    }
-                    return day + "/" + month + "/" + date.getFullYear();
+                    return date.getDate() + "/" + month + "/" + date.getFullYear();
                 },
                 "autowidth": true
             },
@@ -35,19 +26,10 @@
                 "render": function (jsonDate) {
                     var date = new Date(parseInt(jsonDate.substr(6)));
                     var month = date.getMonth() + 1;
-                    var day = date.getDay();
                     if (month < 10) {
-                        if (day < 10) {
-                            return "0" + day + "/" + "0" + month + "/" + date.getFullYear();
-                        }
-                        else {
-                            return day + "/" + "0" + month + "/" + date.getFullYear();
-                        }
+                        return date.getDate() + "/" + "0" + month + "/" + date.getFullYear();
                     }
-                    if (day < 10) {
-                        return "0" + day + "/" + month + "/" + date.getFullYear();
-                    }
-                    return day + "/" + month + "/" + date.getFullYear();
+                    return date.getDate() + "/" + month + "/" + date.getFullYear();
                 },
                 "autowidth": true
             },
