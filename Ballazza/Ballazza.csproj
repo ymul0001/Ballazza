@@ -244,6 +244,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\AdminHome.css" />
+    <Content Include="Content\AssignRoles.css" />
     <Content Include="Content\BookConfirmed.css" />
     <Content Include="Content\Bookings.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -372,6 +373,7 @@
     <Content Include="Views\Home\Chat.cshtml" />
     <Content Include="Views\Mail\Index.cshtml" />
     <Content Include="Views\Ratings\Create.cshtml" />
+    <Content Include="Views\Account\AssignRoles.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -18,7 +18,8 @@
                 To:
             </td>
             <td>
-                @Html.TextAreaFor(m => m.To, new { @class = "text", @rows = 5, @placeholder= "i.e. email1; email2"})
+                @Html.TextAreaFor(m => m.To, new { @class = "text email-area", @rows = 5, @placeholder = "i.e. email1; email2" })
+                @Html.ValidationMessageFor(model => model.To, "", new { @class = "text-danger" })
             </td>
         </tr>
         <tr class="form-row">
@@ -27,6 +28,7 @@
             </td>
             <td>
                 @Html.TextBoxFor(m => m.Subject, new { @class = "text subject", @placeholder = "write the email subject here" })
+                @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
             </td>
         </tr>
         <tr class="form-row">
@@ -43,8 +45,21 @@
             </td>
             <td>
                 @Html.TextAreaFor(m => m.Body, new { @class = "text", @rows = 10, @placeholder = "write email body here" })
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
             </td>
         </tr>
     </table>
+    @Html.DropDownList("Users", (IEnumerable<SelectListItem>)ViewBag.Users, new { style = "margin-bottom: 4vh !important; background: #d6d6d6; height: 4vh!important; !important", @class = "col-md-offset-3 col-md-11 list-emails" })
     <input type="submit" value="Send" class="submit-button" />
 }
+
+<script>
+    let emails = "";
+    document.querySelector('.list-emails').addEventListener('change', () => {
+        emails = emails + document.querySelector('.list-emails').value + ";";
+        document.querySelector('.email-area').value = emails;
+    })
+    document.querySelector('.email-area').addEventListener('input', () => {
+        emails = document.querySelector('.email-area').value; 
+    })
+</script>

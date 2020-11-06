@@ -1,0 +1,23 @@
+﻿body {
+    background-color: #222436;
+}
+
+.form-title {
+    margin-top: 20vh !important;
+    font-size: 3rem;
+    margin-bottom: 5vh !important;
+    color: #fff;
+}
+
+.submit-button {
+    display: block;
+    margin-top: 3vh !important;
+    min-width: 15vw !important;
+    background-color: red;
+    height: 5vh !important;
+    background-color: #C72B2B !important;
+    border: none;
+    color: #fff;
+    font-weight: 700;
+}
+

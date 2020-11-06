@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Ballazza.Models;
 using System.Web.Security;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Ballazza.Controllers
 {
@@ -18,6 +19,7 @@ namespace Ballazza.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+       
 
         public AccountController()
         {
@@ -471,6 +473,36 @@ namespace Ballazza.Controllers
                 context.HttpContext.GetOwinContext().Authentication.Challenge(properties, LoginProvider);
             }
         }
-        #endregion
+        [AllowAnonymous]
+        [Authorize(Roles = "Administrator")]
+        public ActionResult AssignRoles()
+        {
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
+            var listOfUsers = UserManager.Users.Select(u => u.Email);
+            var listOfRoles = roleManager.Roles.Select(r => r.Name);
+            ViewBag.Users = new SelectList(listOfUsers);
+            ViewBag.Roles = new SelectList(listOfRoles);
+            ViewBag.Message = TempData["message"];
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize(Roles="Administrator")]
+        public async Task<ActionResult> DeleteRolesAsync(string Users, string Roles)
+        {
+            if (Users != null)
+            {
+                var user = await UserManager.FindByNameAsync(Users);
+                var userId = user.Id;
+                var roles = await UserManager.GetRolesAsync(userId);
+                await UserManager.RemoveFromRolesAsync(userId, roles.ToArray());
+                UserManager.AddToRole(userId, Roles);
+            }
+            TempData["message"] = "Success";
+            return RedirectToAction("AssignRoles");
+        }
+
+        
     }
+    #endregion
 }

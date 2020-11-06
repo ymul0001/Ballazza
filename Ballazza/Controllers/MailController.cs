@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,8 +11,23 @@ using System.Web.Mvc;
 
 namespace Ballazza.Controllers
 {
+
     public class MailController : Controller
     {
+        private ApplicationUserManager _userManager;
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
         SmtpClient smtp = new SmtpClient
         {
             Host = "smtp.gmail.com",
@@ -46,6 +63,8 @@ namespace Ballazza.Controllers
         //GET: /Mail/Index
         [Authorize(Roles ="Administrator")]
         public ActionResult Index() {
+            var listOfUsers = UserManager.Users.Select(u => u.Email);
+            ViewBag.Users = new SelectList(listOfUsers);
             return View();
         }
 
